@@ -1,5 +1,4 @@
 const express = require('express');
-const fetch = require('node-fetch');
 const multer = require('multer');
 const path = require('path');
 const FormData = require('form-data');
@@ -13,8 +12,13 @@ const TRELLO_TOKEN = process.env.TRELLO_TOKEN;
 const TRELLO_LIST  = process.env.TRELLO_LIST || '69c85c9230751dcd96acbaa9';
 const PORT         = process.env.PORT || 3000;
 
+// ─── Serve static files from public/ or root ───
+const publicDir = path.join(__dirname, 'public');
+const rootDir   = __dirname;
+const fs = require('fs');
+const staticDir = fs.existsSync(publicDir) ? publicDir : rootDir;
+app.use(express.static(staticDir));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── POST /api/submit — Create Trello card + attach files ───
 app.post('/api/submit', upload.array('files', 20), async (req, res) => {
@@ -25,7 +29,6 @@ app.post('/api/submit', upload.array('files', 20), async (req, res) => {
       clientCompany, clientContact, notes, fileNames
     } = req.body;
 
-    // Validate required fields
     if (!projType || !estType || !name || !company || !phone || !email || !dueDate) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
@@ -58,13 +61,13 @@ ${fileNames || 'No files attached'}
 ### Notes
 ${notes || '—'}`;
 
-    // Create the Trello card
+    // Create the Trello card using native fetch (Node 18+)
     const params = new URLSearchParams({
-      name: cardName,
-      desc: cardDesc,
+      name:  cardName,
+      desc:  cardDesc,
       idList: TRELLO_LIST,
-      due: dueDate ? new Date(dueDate).toISOString() : '',
-      key: TRELLO_KEY,
+      due:   dueDate ? new Date(dueDate).toISOString() : '',
+      key:   TRELLO_KEY,
       token: TRELLO_TOKEN,
     });
 
@@ -76,7 +79,7 @@ ${notes || '—'}`;
       return res.status(500).json({ error: 'Trello card creation failed', detail: card });
     }
 
-    // Attach uploaded files to the card
+    // Attach uploaded files
     const attachResults = [];
     if (req.files && req.files.length > 0) {
       for (const file of req.files) {
@@ -100,12 +103,7 @@ ${notes || '—'}`;
       }
     }
 
-    res.json({
-      success: true,
-      cardId: card.id,
-      cardUrl: card.shortUrl,
-      attachments: attachResults
-    });
+    res.json({ success: true, cardId: card.id, cardUrl: card.shortUrl, attachments: attachResults });
 
   } catch (err) {
     console.error('Server error:', err);
@@ -113,11 +111,13 @@ ${notes || '—'}`;
   }
 });
 
-// ─── Serve index.html for all other routes ───
+// ─── Serve index.html for all routes ───
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const indexPath = path.join(staticDir, 'index.html');
+  res.sendFile(indexPath);
 });
 
 app.listen(PORT, () => {
-  console.log(`24seventeen server running on port ${PORT}`);
+  console.log(`24seventeen running on port ${PORT}`);
 });
+
