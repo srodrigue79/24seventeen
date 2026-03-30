@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>24seventeen Estimating Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#0a0600;color:#e8dfc8;font-family:'EB Garamond',Georgia,serif;max-width:430px;margin:0 auto;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background:rgba(6,3,0,0.75);z-index:0;pointer-events:none;}
+body>*{position:relative;z-index:1;}
+a{text-decoration:none;color:inherit;}
+
+/* ─── HEADER ─── */
+.m-header{background:rgba(5,3,0,0.97);border-bottom:1px solid rgba(201,168,76,0.3);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.m-logo{display:flex;align-items:center;gap:12px;}
+.m-logo-text{font-family:'Cinzel Decorative',serif;font-size:18px;color:#c9a84c;line-height:1;}
+.m-logo-sub{font-family:'Cinzel',serif;font-size:9px;color:rgba(201,168,76,0.6);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.m-cta-btn{background:#c9a84c;color:#0f0900;border:none;padding:10px 16px;font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;white-space:nowrap;}
+
+/* ─── TOPBAR ─── */
+.m-topbar{background:rgba(201,168,76,0.08);border-bottom:1px solid rgba(201,168,76,0.15);padding:8px 20px;text-align:center;font-family:'Cinzel',serif;font-size:10px;color:rgba(201,168,76,0.7);letter-spacing:2px;}
+
+/* ─── HERO ─── */
+.m-hero{padding:40px 20px 36px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.12);}
+.m-hero-label{font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,168,76,0.6);margin-bottom:16px;}
+.m-hero h1{font-family:'Cinzel Decorative',serif;font-size:36px;color:#e8dfc8;line-height:1.15;margin-bottom:8px;}
+.m-hero h1 em{font-style:normal;color:#c9a84c;animation:mglow 2.5s ease-in-out infinite;}
+@keyframes mglow{0%,100%{text-shadow:0 0 8px rgba(201,168,76,0.4);}50%{text-shadow:0 0 20px rgba(201,168,76,0.9),0 0 40px rgba(201,168,76,0.4);}}
+.m-hero-sub{font-size:16px;color:rgba(232,223,200,0.7);font-style:italic;line-height:1.6;margin-bottom:28px;padding:0 10px;}
+.m-hero-badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.m-badge{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.7);}
+.m-btn-primary{background:#c9a84c;color:#0f0900;border:none;padding:16px 36px;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%;margin-bottom:12px;}
+.m-btn-secondary{background:transparent;color:#c9a84c;border:1px solid rgba(201,168,76,0.5);padding:14px 36px;font-family:'Cinzel',serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;width:100%;}
+
+/* ─── TRUST STRIP ─── */
+.m-trust{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,0.1);border-top:1px solid rgba(201,168,76,0.1);border-bottom:1px solid rgba(201,168,76,0.1);}
+.m-trust-item{background:#0a0600;padding:16px;text-align:center;}
+.m-trust-val{font-family:'Cinzel Decorative',serif;font-size:20px;color:#c9a84c;line-height:1;margin-bottom:4px;}
+.m-trust-lbl{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(232,223,200,0.4);}
+
+/* ─── SECTIONS ─── */
+.m-section{padding:32px 20px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.m-sec-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#c9a84c;margin-bottom:8px;}
+.m-sec-title{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:#f5eed8;margin-bottom:14px;line-height:1.3;}
+.m-sec-desc{font-size:15px;color:rgba(232,223,200,0.7);line-height:1.75;font-style:italic;margin-bottom:20px;}
+
+/* ─── SERVICES CARDS ─── */
+.m-svc-card{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);padding:18px;margin-bottom:10px;}
+.m-svc-name{font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:#c9a84c;margin-bottom:6px;letter-spacing:.5px;}
+.m-svc-desc{font-size:13px;color:rgba(232,223,200,0.6);line-height:1.6;}
+.m-svc-badge{display:inline-block;font-family:'Cinzel',serif;font-size:8px;letter-spacing:1px;padding:2px 8px;border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.6);margin-top:8px;}
+
+/* ─── STATES ─── */
+.m-states{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:16px;}
+.m-state{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);padding:10px 4px;text-align:center;}
+.m-state-code{font-family:'Cinzel Decorative',serif;font-size:16px;color:#c9a84c;line-height:1;}
+.m-state-name{font-family:'Cinzel',serif;font-size:7px;color:rgba(232,223,200,0.4);letter-spacing:.5px;margin-top:3px;text-transform:uppercase;}
+
+/* ─── ABOUT CARDS ─── */
+.m-about-card{background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);padding:18px;margin-bottom:12px;}
+.m-about-role{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:6px;}
+.m-about-title{font-family:'Cinzel Decorative',serif;font-size:14px;color:#c9a84c;margin-bottom:12px;line-height:1.4;}
+.m-about-body{font-size:13px;color:rgba(232,223,200,0.65);line-height:1.75;}
+.m-bullet{display:flex;gap:8px;font-size:12px;color:rgba(232,223,200,0.55);margin-top:8px;line-height:1.5;}
+.m-bullet::before{content:'✦';color:#c9a84c;flex-shrink:0;font-size:10px;margin-top:2px;}
+
+/* ─── CTA BANNER ─── */
+.m-cta{background:rgba(201,168,76,0.9);padding:32px 20px;text-align:center;}
+.m-cta h2{font-family:'Cinzel Decorative',serif;font-size:20px;color:#0f0900;margin-bottom:10px;line-height:1.3;}
+.m-cta p{font-size:14px;color:rgba(15,9,0,0.75);font-style:italic;margin-bottom:20px;line-height:1.6;}
+.m-cta-dark{background:#0f0900;color:#c9a84c;border:none;padding:16px 36px;font-family:'Cinzel',serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;width:100%;}
+
+/* ─── FOOTER ─── */
+.m-footer{background:rgba(5,3,0,0.98);padding:28px 20px;text-align:center;border-top:1px solid rgba(201,168,76,0.15);}
+.m-footer-name{font-family:'Cinzel Decorative',serif;font-size:20px;color:#c9a84c;margin-bottom:4px;}
+.m-footer-sub{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:16px;}
+.m-footer-email{font-family:'Cinzel',serif;font-size:10px;color:rgba(201,168,76,0.6);letter-spacing:1px;margin-bottom:16px;}
+.m-footer-copy{font-family:'Cinzel',serif;font-size:9px;color:rgba(232,223,200,0.25);letter-spacing:1px;}
+.m-desktop-link{display:block;margin-top:16px;font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(201,168,76,0.4);text-decoration:underline;cursor:pointer;}
+
+/* ─── MODAL ─── */
+#m-modal{position:fixed;inset:0;z-index:9500;display:none;background:rgba(0,0,0,0.92);overflow-y:auto;padding:20px 16px;}
+#m-modal.on{display:block;}
+#m-modal-box{background:#0d0a04;border:1px solid rgba(201,168,76,0.3);width:100%;max-width:400px;margin:0 auto;}
+#m-modal-header{background:#080500;border-bottom:1px solid rgba(201,168,76,0.2);padding:16px 18px;display:flex;align-items:center;justify-content:space-between;}
+#m-modal-header h2{font-family:'Cinzel Decorative',serif;font-size:14px;color:#c9a84c;}
+#m-close{background:transparent;border:1px solid rgba(201,168,76,0.3);color:#c9a84c;width:28px;height:28px;cursor:pointer;font-size:14px;}
+#m-modal-body{padding:20px 18px;}
+.mf-section{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin:16px 0 10px;padding-bottom:5px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.mf-section:first-child{margin-top:0;}
+.mf-toggles{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:4px;}
+.mf-toggle{padding:8px 14px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:transparent;border:1px solid rgba(201,168,76,0.2);color:rgba(201,168,76,0.5);cursor:pointer;}
+.mf-toggle.sel{background:rgba(201,168,76,0.12);border-color:#c9a84c;color:#c9a84c;}
+.mf-row{margin-bottom:12px;}
+.mf-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(201,168,76,0.45);margin-bottom:5px;display:block;}
+.mf-inp{background:#1a1206;border:1px solid rgba(201,168,76,0.2);color:#e8dfc8;font-family:'EB Garamond',serif;font-size:15px;padding:10px 12px;outline:none;width:100%;}
+.mf-inp:focus{border-color:rgba(201,168,76,0.5);}
+textarea.mf-inp{min-height:80px;resize:vertical;}
+.mf-upload{border:1px dashed rgba(201,168,76,0.25);padding:18px;text-align:center;cursor:pointer;margin-bottom:8px;}
+.mf-upload-txt{font-family:'Cinzel',serif;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(201,168,76,0.45);}
+#m-modal-footer{padding:16px 18px;border-top:1px solid rgba(201,168,76,0.12);display:flex;align-items:center;justify-content:space-between;gap:10px;}
+#m-status{font-family:'Cinzel',serif;font-size:10px;flex:1;}
+#m-status.ok{color:#3fb950;}#m-status.er{color:#f85149;}#m-status.sending{color:#c9a84c;}
+#m-submit{background:#c9a84c;color:#0f0900;border:none;padding:13px 24px;font-family:'Cinzel',serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;}
+#m-submit:disabled{opacity:0.5;}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="m-topbar">⚡ Electrical Estimating Services ⚡</div>
+
+<!-- HEADER -->
+<div class="m-header">
+  <div class="m-logo">
+    <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+      <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"/>
+      <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/>
+      <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/>
+      <circle cx="40" cy="40" r="2" fill="#c9a84c"/>
+    </svg>
+    <div>
+      <div class="m-logo-text">24seventeen</div>
+      <div class="m-logo-sub">Estimating Services</div>
+    </div>
+  </div>
+  <button class="m-cta-btn" onclick="openModal()">Get Estimate</button>
+</div>
+
+<!-- HERO -->
+<div class="m-hero">
+  <div class="m-hero-label">Professional Electrical Estimating</div>
+  <h1>Bid <em>More.</em><br>Win <em>More.</em></h1>
+  <p class="m-hero-sub">Residential and commercial electrical estimates — built by estimators who've held the tools, read the drawings, and ran the jobs.</p>
+  <div class="m-hero-badges">
+    <div class="m-badge">24–48 hr Turnaround</div>
+    <div class="m-badge">100% Digital</div>
+    <div class="m-badge">Res + Com</div>
+  </div>
+  <button class="m-btn-primary" onclick="openModal()">Request an Estimate</button>
+  <button class="m-btn-secondary" onclick="document.getElementById('m-services').scrollIntoView({behavior:'smooth'})">View Our Services ↓</button>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="m-trust">
+  <div class="m-trust-item"><div class="m-trust-val">24–48h</div><div class="m-trust-lbl">Turnaround</div></div>
+  <div class="m-trust-item"><div class="m-trust-val">150+</div><div class="m-trust-lbl">Projects</div></div>
+  <div class="m-trust-item"><div class="m-trust-val">$30M+</div><div class="m-trust-lbl">Estimated</div></div>
+  <div class="m-trust-item"><div class="m-trust-val">50+</div><div class="m-trust-lbl">Yrs Combined</div></div>
+</div>
+
+<!-- SERVICES -->
+<div class="m-section" id="m-services">
+  <div class="m-sec-label">Our Services</div>
+  <div class="m-sec-title">Choose the level of detail you need</div>
+
+  <div class="m-svc-card">
+    <div class="m-svc-name">ROM Estimate</div>
+    <div class="m-svc-desc">Rough order of magnitude — fast ballpark number for budgeting and early-stage decisions.</div>
+    <div class="m-svc-badge">Fastest Turnaround</div>
+  </div>
+  <div class="m-svc-card">
+    <div class="m-svc-name">Bill of Materials</div>
+    <div class="m-svc-desc">Full material list with quantities and pricing — ready for buyout or owner review.</div>
+    <div class="m-svc-badge">Material Focused</div>
+  </div>
+  <div class="m-svc-card">
+    <div class="m-svc-name">Proposal Only</div>
+    <div class="m-svc-desc">Clean scope letter with inclusions, exclusions, and lump-sum pricing — ready to send to your client.</div>
+    <div class="m-svc-badge">Client Ready</div>
+  </div>
+  <div class="m-svc-card">
+    <div class="m-svc-name">Full Estimate Package</div>
+    <div class="m-svc-desc">Complete competition-ready bid — takeoff, BOM, labor breakdown, bid summary, and proposal letter.</div>
+    <div class="m-svc-badge">Most Comprehensive</div>
+  </div>
+</div>
+
+<!-- WHO WE SERVE -->
+<div class="m-section">
+  <div class="m-sec-label">Who We Serve</div>
+  <div class="m-sec-title">Built for contractors who are too busy to slow down</div>
+  <div class="m-sec-desc">Electrical contractors, general contractors, home builders, owners, developers, and subcontractors across 5 states.</div>
+  <div class="m-states">
+    <div class="m-state"><div class="m-state-code">NY</div><div class="m-state-name">New York</div></div>
+    <div class="m-state"><div class="m-state-code">CA</div><div class="m-state-name">California</div></div>
+    <div class="m-state"><div class="m-state-code">NM</div><div class="m-state-name">New Mexico</div></div>
+    <div class="m-state"><div class="m-state-code">AZ</div><div class="m-state-name">Arizona</div></div>
+    <div class="m-state"><div class="m-state-code">FL</div><div class="m-state-name">Florida</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="m-section">
+  <div class="m-sec-label">About Us</div>
+  <div class="m-sec-title">Built by estimators who ran the work</div>
+  <div class="m-sec-desc">Over 50 combined years of field experience — from journeyman wireman to senior estimator.</div>
+
+  <div class="m-about-card">
+    <div class="m-about-role">Senior Estimator — Field Background</div>
+    <div class="m-about-title">IBEW Journeyman · Supervisor · Estimator</div>
+    <div class="m-about-body">Started as an IBEW apprentice, advanced through journeyman and foreman roles. 30–40% award rate on competitive bids across federal, commercial, and renewable energy sectors.</div>
+    <div class="m-bullet">Licensed in 6 states · McCormick, Accubid, B2W certified</div>
+    <div class="m-bullet">Federal: military installations, BESS, MV distribution</div>
+  </div>
+
+  <div class="m-about-card">
+    <div class="m-about-role">Senior Estimator — Commercial & Federal</div>
+    <div class="m-about-title">PM · Estimator · 23+ Years Experience</div>
+    <div class="m-about-body">Averages $36M in awarded contracts annually. Deep expertise in BESS, MV distribution, substations, and critical power systems across USACE, NASA, NAVFAC, USN, USAF, USMC.</div>
+    <div class="m-bullet">BBA Management · OSHA 10 · EM385 · CPE pursuing</div>
+    <div class="m-bullet">McCormick, Accubid, Procore certified</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="m-cta">
+  <h2>Ready to stop leaving bids on the table?</h2>
+  <p>Submit your drawing set and we'll respond with scope and turnaround time — fast.</p>
+  <button class="m-cta-dark" onclick="openModal()">Begin Your Estimate Request</button>
+</div>
+
+<!-- FOOTER -->
+<div class="m-footer">
+  <div class="m-footer-name">24seventeen</div>
+  <div class="m-footer-sub">Estimating Services · Est. 2022</div>
+  <div class="m-footer-email">estimating@24seventeen.com</div>
+  <div class="m-footer-copy">© 2022–2025 24seventeen LLC · Fide et Opere</div>
+  <a class="m-desktop-link" href="/">View Full Desktop Site</a>
+</div>
+
+<!-- ESTIMATE MODAL -->
+<div id="m-modal">
+  <div id="m-modal-box">
+    <div id="m-modal-header">
+      <h2>Request an Estimate</h2>
+      <button id="m-close" onclick="closeModal()">✕</button>
+    </div>
+    <div id="m-modal-body">
+
+      <div class="mf-section">Project Type</div>
+      <div class="mf-toggles" id="m-proj-type">
+        <button class="mf-toggle" data-val="Residential" onclick="mSel(this,'m-proj-type')">Residential</button>
+        <button class="mf-toggle" data-val="Commercial" onclick="mSel(this,'m-proj-type')">Commercial</button>
+      </div>
+
+      <div class="mf-section">Estimate Type</div>
+      <div class="mf-toggles" id="m-est-type">
+        <button class="mf-toggle" data-val="ROM (Rough Order of Magnitude)" onclick="mSel(this,'m-est-type')">ROM</button>
+        <button class="mf-toggle" data-val="Bill of Materials (BOM)" onclick="mSel(this,'m-est-type')">BOM</button>
+        <button class="mf-toggle" data-val="Proposal Only" onclick="mSel(this,'m-est-type')">Proposal Only</button>
+        <button class="mf-toggle" data-val="Full Estimate Package" onclick="mSel(this,'m-est-type')">Full Estimate</button>
+      </div>
+
+      <div class="mf-section">Project Details</div>
+      <div class="mf-row"><label class="mf-label">Bid Due Date *</label><input type="date" class="mf-inp" id="m-duedate"/></div>
+      <div class="mf-row"><label class="mf-label">Project Name</label><input type="text" class="mf-inp" id="m-project" placeholder="e.g. Main Street Build-Out"/></div>
+
+      <div class="mf-section">Contact Information</div>
+      <div class="mf-row"><label class="mf-label">Your Name *</label><input type="text" class="mf-inp" id="m-name" placeholder="First Last"/></div>
+      <div class="mf-row"><label class="mf-label">Company *</label><input type="text" class="mf-inp" id="m-company" placeholder="ABC Electric LLC"/></div>
+      <div class="mf-row"><label class="mf-label">Phone *</label><input type="tel" class="mf-inp" id="m-phone" placeholder="(555) 000-0000"/></div>
+      <div class="mf-row"><label class="mf-label">Email *</label><input type="email" class="mf-inp" id="m-email" placeholder="you@company.com"/></div>
+      <div class="mf-row"><label class="mf-label">Website</label><input type="url" class="mf-inp" id="m-website" placeholder="https://yourcompany.com"/></div>
+
+      <div class="mf-section">Client / GC</div>
+      <div class="mf-row"><label class="mf-label">Client / GC Company</label><input type="text" class="mf-inp" id="m-client-co" placeholder="Owner or GC name"/></div>
+      <div class="mf-row"><label class="mf-label">Client / GC Contact</label><input type="text" class="mf-inp" id="m-client-ct" placeholder="Point of contact"/></div>
+
+      <div class="mf-section">Upload Drawings</div>
+      <div class="mf-upload" onclick="document.getElementById('m-files').click()">
+        <div style="font-size:22px;margin-bottom:6px;">📐</div>
+        <div class="mf-upload-txt">Tap to upload drawings</div>
+        <div style="font-size:11px;color:rgba(232,223,200,0.3);margin-top:3px;font-style:italic;">PDF, DWG, DXF, JPG, PNG</div>
+        <input type="file" id="m-files" multiple accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png" style="display:none" onchange="mHandleFiles(this)"/>
+      </div>
+      <div id="m-file-list"></div>
+
+      <div class="mf-section">Notes</div>
+      <div class="mf-row"><textarea class="mf-inp" id="m-notes" placeholder="Scope notes, special conditions…"></textarea></div>
+
+    </div>
+    <div id="m-modal-footer">
+      <div id="m-status"></div>
+      <button id="m-submit" onclick="mSubmit()">Send →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(){ document.getElementById('m-modal').classList.add('on'); document.body.style.overflow='hidden'; window.scrollTo(0,0); }
+function closeModal(){ document.getElementById('m-modal').classList.remove('on'); document.body.style.overflow=''; }
+
+function mSel(btn, groupId){
+  document.querySelectorAll('#'+groupId+' .mf-toggle').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+}
+
+let mFiles = [];
+function mHandleFiles(input){
+  Array.from(input.files).forEach(f=>{ if(!mFiles.find(x=>x.name===f.name)) mFiles.push(f); });
+  const list = document.getElementById('m-file-list');
+  list.innerHTML = mFiles.map((f,i)=>`<div style="display:flex;justify-content:space-between;padding:6px 10px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.12);font-size:11px;color:rgba(232,223,200,0.6);margin-bottom:4px;">
+    <span>📄 ${f.name}</span>
+    <button onclick="mFiles.splice(${i},1);mHandleFiles({files:[]})" style="background:transparent;border:none;color:#f85149;cursor:pointer;">✕</button>
+  </div>`).join('');
+}
+
+function mGetVal(id){ return document.getElementById(id)?.value?.trim()||''; }
+function mGetToggle(id){ return document.querySelector('#'+id+' .mf-toggle.sel')?.dataset?.val||''; }
+function mSetStatus(msg,type){ const s=document.getElementById('m-status'); s.textContent=msg; s.className=type; }
+
+async function mSubmit(){
+  const projType = mGetToggle('m-proj-type');
+  const estType  = mGetToggle('m-est-type');
+  const dueDate  = mGetVal('m-duedate');
+  const name     = mGetVal('m-name');
+  const company  = mGetVal('m-company');
+  const phone    = mGetVal('m-phone');
+  const email    = mGetVal('m-email');
+
+  if(!projType){ mSetStatus('Select project type','er'); return; }
+  if(!estType){  mSetStatus('Select estimate type','er'); return; }
+  if(!name){     mSetStatus('Name required','er'); return; }
+  if(!company){  mSetStatus('Company required','er'); return; }
+  if(!phone){    mSetStatus('Phone required','er'); return; }
+  if(!email||!email.includes('@')){ mSetStatus('Valid email required','er'); return; }
+  if(!dueDate){  mSetStatus('Due date required','er'); return; }
+
+  const btn = document.getElementById('m-submit');
+  btn.disabled = true;
+  mSetStatus('Sending…','sending');
+
+  const fileNames = mFiles.map(f=>f.name).join(', ')||'No files attached';
+
+  // Open mailto
+  const body = `PROJECT TYPE: ${projType}\nESTIMATE TYPE: ${estType}\nDUE DATE: ${dueDate}\nPROJECT: ${mGetVal('m-project')||'—'}\n\nNAME: ${name}\nCOMPANY: ${company}\nPHONE: ${phone}\nEMAIL: ${email}\nWEBSITE: ${mGetVal('m-website')||'—'}\n\nCLIENT CO: ${mGetVal('m-client-co')||'—'}\nCLIENT CT: ${mGetVal('m-client-ct')||'—'}\n\nFILES: ${fileNames}\n\nNOTES: ${mGetVal('m-notes')||'—'}`;
+  const mailLink = document.createElement('a');
+  mailLink.href = `mailto:estimating@24seventeen.com?subject=Estimate Request — ${company} (${estType})&body=${encodeURIComponent(body)}`;
+  mailLink.style.display='none';
+  document.body.appendChild(mailLink);
+  mailLink.click();
+  document.body.removeChild(mailLink);
+
+  // Also call server for Trello
+  try {
+    const fd = new FormData();
+    fd.append('projType',projType); fd.append('estType',estType);
+    fd.append('dueDate',dueDate); fd.append('project',mGetVal('m-project'));
+    fd.append('name',name); fd.append('company',company);
+    fd.append('phone',phone); fd.append('email',email);
+    fd.append('website',mGetVal('m-website'));
+    fd.append('clientCompany',mGetVal('m-client-co'));
+    fd.append('clientContact',mGetVal('m-client-ct'));
+    fd.append('notes',mGetVal('m-notes')); fd.append('fileNames',fileNames);
+    mFiles.forEach(f=>fd.append('files',f,f.name));
+    const r = await fetch('/api/submit',{method:'POST',body:fd});
+    const j = await r.json();
+    mSetStatus(j.success ? '✓ Sent & Trello card created!' : '✓ Email sent!','ok');
+  } catch(e){
+    mSetStatus('✓ Check your email client','ok');
+  }
+
+  setTimeout(()=>{ closeModal(); btn.disabled=false; mSetStatus('',''); }, 3000);
+}
+</script>
+</body>
+</html>
