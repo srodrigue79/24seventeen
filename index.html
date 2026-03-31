@@ -6,6 +6,7 @@
 <!-- v2 --><title>24seventeen Estimating Services — Electrical Estimating within 24–48 hrs</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
+html,body{touch-action:pan-x pan-y;-ms-touch-action:pan-x pan-y;overscroll-behavior:none;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{
   font-family:'EB Garamond',Georgia,serif;
@@ -272,10 +273,16 @@ body.loaded{visibility:visible;}
 <script>
 // ─── Auto-redirect mobile users to /mobile ───
 (function(){
-  var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
-  if(isMobile && window.location.pathname !== '/mobile'){
-    window.location.replace('/mobile');
-  }
+  document.addEventListener('touchstart',function(e){if(e.touches.length>1){e.preventDefault();}},{passive:false});
+  document.addEventListener('touchmove',function(e){if(e.touches.length>1){e.preventDefault();}},{passive:false});
+  document.addEventListener('gesturestart',function(e){e.preventDefault();e.stopPropagation();},{passive:false});
+  document.addEventListener('gesturechange',function(e){e.preventDefault();e.stopPropagation();},{passive:false});
+  document.addEventListener('gestureend',function(e){e.preventDefault();e.stopPropagation();},{passive:false});
+  // Reset scale if somehow zoomed
+  document.addEventListener('touchend',function(){
+    var m=document.querySelector('meta[name=viewport]');
+    if(m){var c=m.content;m.content=c.replace('user-scalable=no','user-scalable=no');m.content=c;}
+  },{passive:true});
 })();
 window.addEventListener('load', function(){
   document.body.classList.add('loaded');
