@@ -50,20 +50,28 @@ app.post('/api/submit', upload.array('files', 20), async (req, res) => {
   }
 });
 
+// Mobile redirect — must come BEFORE static middleware catch-all
 app.get('/', (req, res, next) => {
   const ua = req.headers['user-agent'] || '';
-  if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua)) return res.redirect(302, '/mobile');
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+  if (isMobile) return res.redirect(302, '/mobile');
   next();
 });
 
-app.get('/mobile', (req, res) => { res.sendFile(path.join(staticDir, 'mobile.html')); });
+app.get('/mobile', (req, res) => {
+  res.sendFile(path.join(staticDir, 'mobile.html'));
+});
+
 app.get('/ping', (req, res) => res.send('pong'));
-app.get('*', (req, res) => { res.sendFile(path.join(staticDir, 'index.html')); });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(staticDir, 'index.html'));
+});
 
 app.listen(PORT, () => {
-  console.log(`24seventeen running on port ${PORT}`);
-  const SITE_URL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+  console.log('24seventeen running on port ' + PORT);
+  const SITE_URL = process.env.RENDER_EXTERNAL_URL || 'http://localhost:' + PORT;
   setInterval(async () => {
-    try { await fetch(`${SITE_URL}/ping`); } catch(e) {}
+    try { await fetch(SITE_URL + '/ping'); } catch(e) {}
   }, 14 * 60 * 1000);
 });
