@@ -1,0 +1,150 @@
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+const FormData = require('form-data');
+
+const app = express();
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 20 * 1024 * 1024 } });
+
+// ─── Credentials from environment variables (set in Render dashboard) ───
+const TRELLO_KEY   = process.env.TRELLO_KEY;
+const TRELLO_TOKEN = process.env.TRELLO_TOKEN;
+const TRELLO_LIST  = process.env.TRELLO_LIST || '69c85c9230751dcd96acbaa9';
+const PORT         = process.env.PORT || 3000;
+
+// ─── Serve static files from public/ or root ───
+const publicDir = path.join(__dirname, 'public');
+const rootDir   = __dirname;
+const fs = require('fs');
+const staticDir = fs.existsSync(publicDir) ? publicDir : rootDir;
+app.use(express.static(staticDir));
+app.use(express.json());
+
+// ─── POST /api/submit — Create Trello card + attach files ───
+app.post('/api/submit', upload.array('files', 20), async (req, res) => {
+  try {
+    const {
+      projType, estType, dueDate, project,
+      name, company, phone, email, website,
+      clientCompany, clientContact, notes, fileNames
+    } = req.body;
+
+    if (!projType || !estType || !name || !company || !phone || !email || !dueDate) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    const cardName = `[${estType}] ${company} — Due ${dueDate}`;
+    const cardDesc =
+`## Estimate Request — ${company}
+
+**Project Type:** ${projType}
+**Estimate Type:** ${estType}
+**Bid Due Date:** ${dueDate}
+**Project:** ${project || '—'}
+
+---
+### Estimating Contact
+- **Name:** ${name}
+- **Company:** ${company}
+- **Phone:** ${phone}
+- **Email:** ${email}
+- **Website:** ${website || '—'}
+
+### Client / GC
+- **Company:** ${clientCompany || '—'}
+- **Contact:** ${clientContact || '—'}
+
+---
+### Drawings / Files
+${fileNames || 'No files attached'}
+
+### Notes
+${notes || '—'}`;
+
+    // Create the Trello card using native fetch (Node 18+)
+    const params = new URLSearchParams({
+      name:  cardName,
+      desc:  cardDesc,
+      idList: TRELLO_LIST,
+      due:   dueDate ? new Date(dueDate).toISOString() : '',
+      key:   TRELLO_KEY,
+      token: TRELLO_TOKEN,
+    });
+
+    const cardResp = await fetch(`https://api.trello.com/1/cards?${params}`, { method: 'POST' });
+    const card = await cardResp.json();
+
+    if (!card.id) {
+      console.error('Trello card creation failed:', card);
+      return res.status(500).json({ error: 'Trello card creation failed', detail: card });
+    }
+
+    // Attach uploaded files
+    const attachResults = [];
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        try {
+          const form = new FormData();
+          form.append('file', file.buffer, { filename: file.originalname, contentType: file.mimetype });
+          form.append('name', file.originalname);
+          form.append('key', TRELLO_KEY);
+          form.append('token', TRELLO_TOKEN);
+
+          const attResp = await fetch(`https://api.trello.com/1/cards/${card.id}/attachments`, {
+            method: 'POST',
+            body: form,
+            headers: form.getHeaders()
+          });
+          const att = await attResp.json();
+          attachResults.push({ file: file.originalname, ok: !!att.id });
+        } catch (e) {
+          attachResults.push({ file: file.originalname, ok: false, error: e.message });
+        }
+      }
+    }
+
+    res.json({ success: true, cardId: card.id, cardUrl: card.shortUrl, attachments: attachResults });
+
+  } catch (err) {
+    console.error('Server error:', err);
+    res.status(500).json({ error: 'Server error', detail: err.message });
+  }
+});
+
+// ─── Mobile detection — redirect phones to /mobile ───
+app.get('/', (req, res, next) => {
+  const ua = req.headers['user-agent'] || '';
+  const isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+  if(isMobile) return res.redirect(302, '/mobile');
+  next();
+});
+
+// ─── Mobile route ───
+app.get('/mobile', (req, res) => {
+  res.sendFile(path.join(staticDir, 'mobile.html'));
+});
+
+// ─── Serve index.html for all routes ───
+app.get('*', (req, res) => {
+  const indexPath = path.join(staticDir, 'index.html');
+  res.sendFile(indexPath);
+});
+
+app.listen(PORT, () => {
+  console.log(`24seventeen running on port ${PORT}`);
+
+  // ─── Keep-alive ping — prevents Render free tier cold starts ───
+  const SITE_URL = process.env.RENDER_EXTERNAL_URL || `http://localhost:${PORT}`;
+  setInterval(async () => {
+    try {
+      await fetch(`${SITE_URL}/ping`);
+      console.log(`[keep-alive] pinged ${SITE_URL}/ping`);
+    } catch(e) {
+      console.log(`[keep-alive] ping failed: ${e.message}`);
+    }
+  }, 14 * 60 * 1000); // every 14 minutes
+});
+
+// ─── Ping endpoint ───
+app.get('/ping', (req, res) => res.send('pong'));
+
