@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>24seventeen Estimating Services — Electrical Estimating within 24–48 hrs</title>
+<!-- v2 --><title>24seventeen Estimating Services — Electrical Estimating within 24–48 hrs</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -142,7 +142,7 @@ a{text-decoration:none;color:inherit;}
 /* ═══════════════════════════
    SERVICE CARDS
 ═══════════════════════════ */
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .sc{background:rgba(6,4,1,0.75);border:1px solid rgba(201,168,76,0.16);padding:28px;position:relative;backdrop-filter:blur(2px);}
 .sc.feat{border:1px solid rgba(201,168,76,0.82);background:rgba(201,168,76,0.03);}
 .sc-badge{position:absolute;top:16px;right:16px;font-family:'Cinzel',serif;font-size:10.5px;font-weight:600;padding:3px 10px;letter-spacing:1.5px;text-transform:uppercase;}
@@ -251,6 +251,42 @@ function closeEstModal(){
 }
 </script>
 <body>
+<!-- ═══ LOADING SCREEN ═══ -->
+<div id="site-loader" style="position:fixed;inset:0;background:#0a0600;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s ease;">
+  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+    <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5" opacity="0.6"/>
+    <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"/>
+    <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/>
+    <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/>
+    <text x="28" y="31" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">XX</text>
+    <text x="52" y="31" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">IV</text>
+    <text x="27" y="58" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">XV</text>
+    <text x="53" y="58" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">II</text>
+    <circle cx="40" cy="40" r="2.5" fill="#c9a84c"/>
+  </svg>
+  <div style="font-family:'Georgia',serif;font-size:13px;color:rgba(201,168,76,0.6);letter-spacing:4px;text-transform:uppercase;margin-top:20px;animation:loaderPulse 1.5s ease-in-out infinite;">24seventeen</div>
+  <div style="font-family:'Georgia',serif;font-size:10px;color:rgba(201,168,76,0.35);letter-spacing:3px;text-transform:uppercase;margin-top:8px;">Estimating Services</div>
+</div>
+<style>
+@keyframes loaderPulse{0%,100%{opacity:0.4;}50%{opacity:1;}}
+body{visibility:hidden;}
+body.loaded{visibility:visible;}
+</style>
+<script>
+// ─── Auto-redirect mobile users to /mobile ───
+(function(){
+  var isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+  if(isMobile && window.location.pathname !== '/mobile'){
+    window.location.replace('/mobile');
+  }
+})();
+window.addEventListener('load', function(){
+  document.body.classList.add('loaded');
+  var loader = document.getElementById('site-loader');
+  loader.style.opacity = '0';
+  setTimeout(function(){ loader.style.display = 'none'; }, 650);
+});
+</script>
 
 <div style="background:#0d0800;border-bottom:1px solid rgba(201,168,76,0.65);text-align:center;padding:18px 2rem;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,0.08) 30%,rgba(201,168,76,0.60) 50%,rgba(201,168,76,0.08) 70%,transparent 100%);animation:sweep 3s ease-in-out infinite;"></div>
@@ -283,7 +319,6 @@ function closeEstModal(){
 </style>
 
 <div class="topbar">
-  <span>✉ <a href="mailto:estimating@24seventeen.com">estimating@24seventeen.com</a></span>
   <span class="topbar-badge">⚡ Turnaround: 24 to 48 Hours</span>
 </div>
 
@@ -339,7 +374,6 @@ function closeEstModal(){
       <span style="cursor:pointer" onclick="navTab('projects')">Projects</span>
       <span style="cursor:pointer" onclick="navTab('samples')">Samples</span>
       <span style="cursor:pointer" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">About</span>
-      <span style="cursor:pointer">Contact</span>
     </div>
     <button class="nav-cta" onclick="openEstModal()">Get an Estimate</button>
   </div>
@@ -491,28 +525,29 @@ function closeEstModal(){
     <div class="tab-pane" id="tab-services">
       <div class="sec-label">Our Services</div>
       <h2 class="sec-title">Choose the level of detail you need</h2>
-      <p class="sec-desc">From a fast ROM ballpark to a full competition-ready bid package — every deliverable built by estimators who've done the work.</p>
+      <p class="sec-desc">From a fast ROM ballpark to a full competition-ready bid package — every deliverable built by estimators who've done the work. We also support architects, developers, change orders, procurement, and offer fully customized estimating systems for contractors who want to run their own numbers.</p>
       <div class="svc-grid">
         <div class="sc">
           <span class="sc-badge bb">Quick Turnaround</span>
           <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="11" cy="11" r="9"/><polyline points="11,6 11,11 15,13"/></svg></div>
-          <div class="sc-name">ROM Estimate</div>
-          <div class="sc-desc">A Rough Order of Magnitude gives you a reliable cost range for go/no-go decisions, client conversations, or early-stage budgeting — without the full takeoff investment.</div>
+          <div class="sc-name">ROM & Budget Estimate</div>
+          <div class="sc-desc">A Rough Order of Magnitude or budget-level estimate gives architects, developers, owners, and lenders a reliable cost range for go/no-go decisions, financing, permitting, or early-stage planning — without the full takeoff investment.</div>
           <div class="incs">
             <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Rapid delivery</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Budgetary cost range</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ideal for architects, developers & finance teams</div>
             <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Field-calibrated, not spreadsheet guesswork</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Go / no-go decision support</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Loan, permit & feasibility support</div>
           </div>
         </div>
         <div class="sc">
           <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1"/><line x1="7" y1="7" x2="15" y2="7"/><line x1="7" y1="11" x2="15" y2="11"/><line x1="7" y1="15" x2="11" y2="15"/></svg></div>
           <div class="sc-name">Bill of Materials</div>
-          <div class="sc-desc">A clean, itemized list of every material needed with total labor hours and hard cost pricing — the foundation for procurement, buyout, or subbing the work.</div>
+          <div class="sc-desc">A clean, itemized list of every material needed with total labor hours and hard cost pricing — the foundation for procurement, buyout, owner review, or subbing the work.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Itemized material list</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Total labor hours</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Itemized material list with quantities</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Total labor hours by trade class</div>
             <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Hard cost material pricing</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ready for material procurement & buyout</div>
           </div>
         </div>
         <div class="sc feat">
@@ -530,13 +565,37 @@ function closeEstModal(){
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="2,16 6,10 10,13 15,6 20,9"/><line x1="2" y1="19" x2="20" y2="19"/></svg></div>
-          <div class="sc-name">Custom Scope</div>
-          <div class="sc-desc">Need just a takeoff? Just labor hours? Just a proposal letter? We scope exactly what you need — nothing more, nothing less.</div>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M4 4h14v10H4z"/><line x1="8" y1="18" x2="14" y2="18"/><line x1="11" y1="14" x2="11" y2="18"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="11" x2="11" y2="11"/></svg></div>
+          <div class="sc-name">Change Order Estimating</div>
+          <div class="sc-desc">Field changes, scope additions, and owner-directed modifications priced accurately and defensibly — so you recover every dollar you're owed without leaving money on the table.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Mix and match deliverables</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Residential or commercial</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Quick consult to define scope</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Scope delta analysis</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Labor & material repricing</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Defensible backup documentation</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Fast turnaround for field conditions</div>
+          </div>
+        </div>
+        <div class="sc">
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="2,16 6,10 10,13 15,6 20,9"/><line x1="2" y1="19" x2="20" y2="19"/></svg></div>
+          <div class="sc-name">Material Procurement Estimating</div>
+          <div class="sc-desc">Need a detailed material list built specifically for procurement? We produce clean, organized BOMs formatted for supplier quotes, PO generation, and project buyout — saving your team hours in the field office.</div>
+          <div class="incs">
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Procurement-ready format</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Supplier quote-ready line items</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Phase or system breakouts available</div>
+          </div>
+        </div>
+        <div class="sc feat">
+          <span class="sc-badge" style="background:rgba(56,200,253,0.15);color:rgba(56,200,253,0.9);border-color:rgba(56,200,253,0.3);">Be Your Own Estimator</span>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="3" width="18" height="14" rx="1"/><line x1="7" y1="20" x2="15" y2="20"/><line x1="11" y1="17" x2="11" y2="20"/><circle cx="11" cy="10" r="3"/><line x1="14" y1="7" x2="16" y2="5"/></svg></div>
+          <div class="sc-name">Custom Estimating Systems</div>
+          <div class="sc-desc">We build fully functioning, professional estimating systems catered to your exact workflow — your labor rates, your markup structure, your deliverable format. Take control of your own numbers without hiring a full-time estimator.</div>
+          <div class="incs">
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Built to your company's specific needs</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Residential, commercial, or service work</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Monthly rental, annual license, or outright purchase</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Training & onboarding included</div>
+            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ongoing support available</div>
           </div>
         </div>
       </div>
@@ -1271,8 +1330,11 @@ function closeEstModal(){
       <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.18);padding:28px;">
         <div style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:8px;">Senior Estimator — Field Background</div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:17px;color:#c9a84c;margin-bottom:14px;line-height:1.3;">IBEW Journeyman · Supervisor · Estimator</div>
-        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Started as an IBEW apprentice, advancing through journeyman and foreman roles on federal installations, hospital systems, and university facilities. Moved into supervision on major healthcare and commercial projects internationally before transitioning fully into estimating. Maintains a 30–40% award rate on competitive bids across federal, commercial, and renewable energy sectors.</p>
+        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Career began in the field with several local residential electrical companies, working on high-profile custom homes, multi-family developments, and commercial projects throughout the region — building a strong foundation in real-world installation before entering the IBEW apprenticeship program. Advanced through journeyman and foreman roles on federal installations, hospital systems, and university facilities, then moved into supervision on major healthcare and commercial projects internationally before transitioning fully into estimating. Maintains a 30–40% award rate on competitive bids across residential, commercial, federal, and renewable energy sectors.</p>
         <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
+            <span style="color:#c9a84c;flex-shrink:0;">✦</span>Field background: residential, multi-family, and commercial — high-profile projects
+          </div>
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
             <span style="color:#c9a84c;flex-shrink:0;">✦</span>IBEW Journeyman Wireman — licensed in 6 states
           </div>
@@ -1286,7 +1348,7 @@ function closeEstModal(){
             <span style="color:#c9a84c;flex-shrink:0;">✦</span>Certified: McCormick, Accubid, B2W · EM385 · USACE · Security Clearance (exp.)
           </div>
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
-            <span style="color:#c9a84c;flex-shrink:0;">✦</span>Experience across U.S., New Zealand — commercial, federal, renewables, healthcare
+            <span style="color:#c9a84c;flex-shrink:0;">✦</span>Experience across U.S., New Zealand — residential, commercial, federal, renewables
           </div>
         </div>
       </div>
@@ -1295,8 +1357,11 @@ function closeEstModal(){
       <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.18);padding:28px;">
         <div style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:8px;">Senior Estimator — Commercial & Federal</div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:17px;color:#c9a84c;margin-bottom:14px;line-height:1.3;">PM · Estimator · 23+ Years Experience</div>
-        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Over two decades leading electrical construction estimating and project management across commercial, industrial, government, and mission-critical environments. Averages $36M in awarded contracts annually. Deep expertise in BESS, MV distribution, substations, and critical power systems. Has managed electrical services across dozens of federal agencies — USACE, NASA, NAVFAC, USN, USAF, USMC — under both design-bid-build and design-build delivery.</p>
+        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Electrical career rooted in residential and multi-family work — starting as a residential electrician and service technician, then rising to manage an entire service department for a large electrical contractor. That hands-on service and operations background became the foundation for over two decades of estimating and project management across commercial, industrial, government, and mission-critical environments. Averages $36M in awarded contracts annually. Deep expertise in BESS, MV distribution, substations, and critical power systems. Has managed electrical services across dozens of federal agencies — USACE, NASA, NAVFAC, USN, USAF, USMC — under both design-bid-build and design-build delivery.</p>
         <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
+            <span style="color:#c9a84c;flex-shrink:0;">✦</span>Residential electrician, service tech, and service department manager — large EC
+          </div>
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
             <span style="color:#c9a84c;flex-shrink:0;">✦</span>BBA in Management — 23+ years electrical construction leadership
           </div>
@@ -1330,7 +1395,7 @@ function closeEstModal(){
           <div style="font-family:'Cinzel',serif;font-size:15px;color:rgba(232,223,200,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Awards Won</div>
         </div>
         <div style="text-align:center;padding:14px 10px;border:1px solid rgba(201,168,76,0.12);">
-          <div style="font-family:'Cinzel Decorative',serif;font-size:22px;color:#c9a84c;">Res + Fed</div>
+          <div style="font-family:'Cinzel Decorative',serif;font-size:22px;color:#c9a84c;">Res + Com + Fed</div>
           <div style="font-family:'Cinzel',serif;font-size:15px;color:rgba(232,223,200,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:3px;">Sectors Covered</div>
         </div>
         <div style="text-align:center;padding:14px 10px;border:1px solid rgba(201,168,76,0.12);">
@@ -1408,7 +1473,6 @@ function closeEstModal(){
         <span style="cursor:pointer">About Us</span>
         <span style="cursor:pointer" onclick="navTab('process')">Process</span>
         <span style="cursor:pointer">Samples</span>
-        <span style="cursor:pointer">Contact</span>
       </div>
     </div>
 
@@ -1418,20 +1482,6 @@ function closeEstModal(){
       <!-- LEFT: copyright text -->
       <div style="display:flex;flex-direction:column;gap:4px;">
         <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;">© 2022–2025 24seventeen LLC</span>
-        <span style="font-family:'Cinzel',serif;font-size:12px;color:rgba(201,168,76,0.55);letter-spacing:1px;text-transform:uppercase;">✉ estimating@24seventeen.com</span>
-      </div>
-
-      <!-- CENTER: tagline -->
-      <div class="footer-bot-mid">
-        <span>Electrical Estimating · Residential & Commercial</span>
-        <span>Anno Domini · Est. 2022</span>
-      </div>
-
-    <!-- FOOTER BOTTOM — copyright left, tagline center, email right -->
-    <div class="footer-bot">
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;">© 2022–2025 24seventeen LLC</span>
-        <span style="font-family:'Cinzel',serif;font-size:12px;color:rgba(201,168,76,0.55);letter-spacing:1px;text-transform:uppercase;">✉ estimating@24seventeen.com</span>
       </div>
       <div class="footer-bot-mid">
         <span>Electrical Estimating · Residential & Commercial</span>
@@ -1524,6 +1574,7 @@ body.edit-mode .ed-text-block .del-block{display:flex;position:absolute;top:-10p
 <!-- Edit trigger button -->
 <button id="edit-trigger" onclick="openPwModal()">✎ Edit</button>
 <button id="debug-trigger" onclick="openDebugWithPw()" title="Debug export" style="position:fixed;bottom:8px;left:50%;transform:translateX(4px);z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(56,200,253,0.2);color:rgba(56,200,253,0.4);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 8px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;">🔍 Debug</button>
+<a href="/mobile" style="position:fixed;bottom:8px;right:18px;z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.5);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 10px;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" title="View mobile version">📱 Mobile</a>
 
 <!-- Password modal -->
 <div id="pw-modal">
@@ -2236,40 +2287,6 @@ async function submitEstimate(){
     notes:         getVal('f-notes') || '—',
     files:         fileNames,
   };
-
-  // Build mailto body first (synchronous — before any async)
-  const body =
-`PROJECT TYPE: ${data.projType}
-ESTIMATE TYPE: ${data.estType}
-BID DUE DATE: ${data.dueDate}
-PROJECT: ${data.project}
-
-── ESTIMATING CONTACT ──
-Name:    ${data.name}
-Company: ${data.company}
-Phone:   ${data.phone}
-Email:   ${data.email}
-Website: ${data.website}
-
-── CLIENT / GC ──
-Company: ${data.clientCompany}
-Contact: ${data.clientContact}
-
-── FILES ──
-${data.files}
-
-── NOTES ──
-${data.notes}`;
-
-  const mailtoLink = `mailto:estimating@24seventeen.com?subject=Estimate Request — ${data.company} (${data.estType})&body=${encodeURIComponent(body)}`;
-
-  // Open mailto via hidden link click (avoids popup blocker)
-  const mailLink = document.createElement('a');
-  mailLink.href = mailtoLink;
-  mailLink.style.display = 'none';
-  document.body.appendChild(mailLink);
-  mailLink.click();
-  document.body.removeChild(mailLink);
 
   setStatus('Sending to Trello…','sending');
 
