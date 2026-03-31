@@ -1498,7 +1498,7 @@ window.addEventListener('load', function(){
       </div>
     </div>
 
-    <!-- QUINQUE SOLAE — single line across very bottom -->
+    <!-- — single line across very bottom -->
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.08);text-align:center;">
       <span style="font-family:'Cinzel',serif;font-size:15px;color:rgba(201,168,76,0.62);letter-spacing:2.5px;text-transform:uppercase;">
         Quinque Solae &nbsp;·&nbsp; Sola Scriptura &nbsp;·&nbsp; Sola Fide &nbsp;·&nbsp; Sola Gratia &nbsp;·&nbsp; Solus Christus &nbsp;·&nbsp; Soli Deo Gloria
@@ -1524,7 +1524,7 @@ function navTab(id) {
 <!-- ═══ EDITOR SYSTEM ═══ -->
 <style>
 /* Edit button */
-#edit-trigger{position:fixed;bottom:8px;left:50%;transform:translateX(-60px);z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.5);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 8px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
+#edit-trigger{position:fixed;bottom:16px;right:72px;left:auto;transform:none;z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.5);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 8px;cursor:pointer;transition:all 0.2s;text-transform:uppercase;}
 #edit-trigger:hover{border-color:#c9a84c;color:#c9a84c;}
 #edit-trigger.active{background:#c9a84c;color:#0f0900;border-color:#c9a84c;}
 
@@ -1579,17 +1579,7 @@ body.edit-mode .ed-text-block .del-block{display:flex;position:absolute;top:-10p
 
 <!-- Edit trigger button -->
 <button id="edit-trigger" onclick="openPwModal()">✎ Edit</button>
-<button id="debug-trigger" onclick="openDebugWithPw()" title="Debug export" style="position:fixed;bottom:8px;left:50%;transform:translateX(4px);z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(56,200,253,0.2);color:rgba(56,200,253,0.4);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 8px;cursor:pointer;text-transform:uppercase;transition:all 0.2s;">🔍 Debug</button>
-<a href="/mobile" style="position:fixed;bottom:8px;right:18px;z-index:9000;background:rgba(8,6,2,0.85);border:1px solid rgba(201,168,76,0.3);color:rgba(201,168,76,0.5);font-family:'Cinzel',serif;font-size:11px;letter-spacing:1px;padding:4px 10px;text-decoration:none;text-transform:uppercase;transition:all 0.2s;" title="View mobile version">📱 Mobile</a>
 
-<!-- Password modal -->
-<div id="pw-modal">
-  <div id="pw-box">
-    <h3>Enter Edit Password</h3>
-    <input type="password" id="pw-inp" placeholder="••••••••••••••" maxlength="30" onkeydown="if(event.key==='Enter')checkPw()"/>
-    <div id="pw-err"></div>
-    <div class="pw-btns">
-      <button class="pw-btn" onclick="closePwModal()">Cancel</button>
       <button class="pw-btn ok" onclick="checkPw()">Unlock</button>
     </div>
   </div>
