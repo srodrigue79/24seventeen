@@ -3,8 +3,8 @@ const https = require('https');
 const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 10000;
-const TK = '1f368e86e9c315bcab3e11ea70f91321';
-const TT = 'ATTAfe185daf054921bcce58899e09da7508943da782acc9046f8ca1dce14a0d01f87FDF62A9';
+const TK = 'e2f53dda494e678ff457eb1393db96ef';
+const TT = 'f4ac34edbbd50d254a8631242e2e8fbc6fdba26608bd5c94e1d75bebc3295bd5';
 const TL = '69c85c9230751dcd96acbaa9';
 let html = fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 
