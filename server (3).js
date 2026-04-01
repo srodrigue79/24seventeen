@@ -35,8 +35,8 @@ http.createServer(async(req,res)=>{
 if(req.method==='OPTIONS'){res.writeHead(200,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'POST','Access-Control-Allow-Headers':'Content-Type'});res.end();return;}
 if(req.method==='POST'&&req.url==='/api/submit'){
 const d=await pb(req);
-const name=(d.projType||'')+'|'+(d.name||'')+'-'+(d.company||'')+'|Due:'+(d.dueDate||'');
-const desc=['**Project:** '+(d.project||''),'**Type:** '+(d.estType||''),'**Contact:** '+(d.name||''),'**Company:** '+(d.company||''),'**Phone:** '+(d.phone||''),'**Email:** '+(d.email||''),'**Due:** '+(d.dueDate||''),'**Notes:** '+(d.notes||'')].join('\n');
+const name=((d.project&&d.project!=='—')?('['+d.project+'] '):'')+((d.projType||'')+'|'+(d.name||'')+'-'+(d.company||'')+'|Due:'+(d.dueDate||''));
+const desc=['**Project:** '+(d.project||'—'),'**Type:** '+(d.estType||'—'),'**Contact:** '+(d.name||'—'),'**Company:** '+(d.company||'—'),'**Phone:** '+(d.phone||'—'),'**Email:** '+(d.email||'—'),'**Due Date:** '+(d.dueDate||'—'),'**Client Company:** '+(d.clientCompany||'—'),'**Docs Link:** '+(d.website||'—'),'**Notes:** '+(d.notes||'—')].join('\n');
 const result=await tc(name,desc);
 res.writeHead(200,{'Content-Type':'application/json','Access-Control-Allow-Origin':'*'});
 res.end(JSON.stringify({success:result.success,cardId:result.body&&result.body.id}));
