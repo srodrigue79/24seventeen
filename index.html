@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <!-- v2 --><title>24seventeen Estimating Services — Electrical Estimating within 24–48 hrs</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cinzel+Decorative:wght@400;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Cinzel+Decorative:wght@400;700&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
 <style>
 html,body{touch-action:pan-x pan-y;-ms-touch-action:pan-x pan-y;overscroll-behavior:none;overflow-x:hidden;max-width:100vw;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -236,7 +234,6 @@ footer{background:rgba(3,2,0,0.94);border-top:1px solid rgba(201,168,76,0.60);pa
 @media(max-width:820px){.estimators-grid{grid-template-columns:1fr !important;gap:28px !important;}.trust-inner{grid-template-columns:repeat(2,1fr);}.client-grid,.svc-grid,.pillars{grid-template-columns:1fr;}.how-grid{grid-template-columns:1fr;gap:32px;}.footer-top{grid-template-columns:1fr;}.topbar{display:none !important;}.nav{height:70px !important;}.nav-links{display:none !important;}.logo-emblem{display:none !important;}.logo-text-group{display:none !important;}#elec-services-bar{display:block !important;}#elec-services-bar > div{height:52px !important;}#elec-services-bar > span{font-size:12px !important;letter-spacing:5px !important;animation:barFlashMobile 1.8s ease-in-out infinite !important;}.hero{grid-template-columns:1fr !important;}.hero-right{display:none !important;}#mobile-shield-hero{display:flex !important;flex-direction:column !important;justify-content:center;align-items:center;padding:20px 0 4px 0;}#mobile-hero-shield{width:270px !important;height:270px !important;animation:shieldGlowMobile 2.5s ease-in-out infinite !important;}.hero-ornament{display:none !important;}.hero h1{font-size:38px !important;text-align:center !important;animation:heroGlowMobile 2.2s ease-in-out infinite !important;}.hero h1 em{animation:heroEmGlowMobile 2.2s ease-in-out infinite !important;animation-delay:0.3s !important;}.hero-sub,.hero-desc,.hero-eyebrow{text-align:center !important;}.hero-btns{justify-content:center !important;}}
 
 @media(max-width:820px){.tab-bar{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;flex-wrap:nowrap;}.tab-bar::-webkit-scrollbar{display:none;}.tab-btn{flex-shrink:0;font-size:13px;padding:10px 14px;}.tabs-section{padding:40px 1rem 48px;}.tabs-section-title{display:block !important;}}</style>
-</head>
 <script>
 // ─── CRITICAL EARLY FUNCTIONS — must be available before DOM buttons ───
 function openEstModal(){
@@ -248,20 +245,72 @@ function closeEstModal(){
   const m = document.getElementById('est-modal');
   if(m){ m.classList.remove('on'); document.body.style.overflow=''; }
 }
-</script>
-<body>
+</script><style>
+@media(max-width:820px){
+  /* Font size +25% across the board */
+  body{font-size:18px !important;}
+  .hero h1{font-size:36px !important;}
+  .sec-title{font-size:24px !important;}
+  .sec-desc,.hero-desc,.hero-sub{font-size:16px !important;}
+  .tab-btn{font-size:14px !important;}
+  .cc-title,.col-title{font-size:15px !important;}
+  .cc-desc,.col-val{font-size:14px !important;}
+  .footer-name{font-size:22px !important;}
+  
+  /* Fix overflow - Combined Team Credentials section */
+  #about-section .section-inner > div:last-child{
+    overflow-x:hidden !important;
+    max-width:100% !important;
+  }
+  #about-section .section-inner > div:last-child > div:first-child{
+    font-size:13px !important;
+    letter-spacing:1px !important;
+    word-break:break-word !important;
+  }
+  #about-section .section-inner > div:last-child > div:last-child{
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:8px !important;
+    overflow-x:hidden !important;
+  }
+  
+  /* Fix overflow - Where We Work section (5 columns) */
+  #tab-serve .section-inner > div > div:nth-child(2),
+  #tab-serve > div > div > div:nth-child(2){
+    display:grid !important;
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:10px !important;
+    overflow-x:hidden !important;
+  }
+  
+  /* Fix client-grid (Who We Serve) */
+  .client-grid{grid-template-columns:1fr !important;}
+  .cc{max-width:100% !important;overflow:hidden !important;word-break:break-word !important;}
+  
+  /* Fix Where We Work inner grid */
+  .how-grid{overflow-x:hidden !important;}
+  
+  /* Prevent any horizontal overflow globally */
+  #tab-serve,#tab-services,#tab-process,#tab-projects,#tab-samples,#about-section{
+    overflow-x:hidden !important;
+    max-width:100% !important;
+  }
+  .section-inner{overflow-x:hidden !important;max-width:100% !important;}
+}</style></head>
+
+<body class="loaded" style="">
 <!-- ═══ LOADING SCREEN ═══ -->
-<div id="site-loader" style="position:fixed;inset:0;background:#0a0600;z-index:99999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.6s ease;">
+<div id="site-loader" style="position: fixed; inset: 0px; background: rgb(10, 6, 0); z-index: 99999; display: none; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s; opacity: 0;">
   <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-    <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5" opacity="0.6"/>
-    <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"/>
-    <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/>
-    <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/>
+    <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5" opacity="0.6"></circle>
+    <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"></path>
+    <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"></line>
+    <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"></line>
     <text x="28" y="31" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">XX</text>
     <text x="52" y="31" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">IV</text>
     <text x="27" y="58" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">XV</text>
     <text x="53" y="58" text-anchor="middle" font-family="serif" font-size="11" fill="#c9a84c" font-weight="700">II</text>
-    <circle cx="40" cy="40" r="2.5" fill="#c9a84c"/>
+    <circle cx="40" cy="40" r="2.5" fill="#c9a84c"></circle>
   </svg>
   <div style="font-family:'Georgia',serif;font-size:13px;color:rgba(201,168,76,0.6);letter-spacing:4px;text-transform:uppercase;margin-top:20px;animation:loaderPulse 1.5s ease-in-out infinite;">24seventeen</div>
   <div style="font-family:'Georgia',serif;font-size:10px;color:rgba(201,168,76,0.35);letter-spacing:3px;text-transform:uppercase;margin-top:8px;">Estimating Services</div>
@@ -335,15 +384,15 @@ window.addEventListener('load', function(){
     <div class="logo-emblem">
       <svg width="240" height="240" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Outer dashed ring -->
-        <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"/>
+        <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"></circle>
         <!-- Second ring -->
-        <circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"/>
+        <circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"></circle>
         <!-- Shield outline -->
-        <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.07)" stroke="#c9a84c" stroke-width="1.3"/>
+        <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.07)" stroke="#c9a84c" stroke-width="1.3"></path>
         <!-- CROSS — horizontal bar -->
-        <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"></line>
         <!-- CROSS — vertical bar -->
-        <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/>
+        <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"></line>
         <!-- Top-left quadrant: XX — pulled in from edges -->
         <text x="29" y="32" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">XX</text>
         <!-- Top-right quadrant: IV — pulled in from edges -->
@@ -353,21 +402,21 @@ window.addEventListener('load', function(){
         <!-- Bottom-right quadrant: II — pulled in from edges, raised to clear shield taper -->
         <text x="51" y="54" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">II</text>
         <!-- Cross center jewel -->
-        <circle cx="40" cy="40" r="2.5" fill="#c9a84c"/>
+        <circle cx="40" cy="40" r="2.5" fill="#c9a84c"></circle>
         <!-- Shield top ornament dots -->
-        <circle cx="31" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"/>
-        <circle cx="40" cy="13.5" r="1.2" fill="rgba(201,168,76,0.88)"/>
-        <circle cx="49" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"/>
+        <circle cx="31" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"></circle>
+        <circle cx="40" cy="13.5" r="1.2" fill="rgba(201,168,76,0.88)"></circle>
+        <circle cx="49" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"></circle>
         <!-- Shield bottom point ornament -->
-        <path d="M36 69 Q40 73 44 69" stroke="rgba(201,168,76,0.4)" stroke-width="0.9" fill="none"/>
+        <path d="M36 69 Q40 73 44 69" stroke="rgba(201,168,76,0.4)" stroke-width="0.9" fill="none"></path>
       </svg>
     </div>
 
     <div class="logo-text-group">
-      <div class="logo-name">24seventeen</div>
-      <div class="logo-sub">Estimating Services</div>
-      <div class="logo-tagline">XXIV · XVII · Anno Domini</div>
-      <div class="logo-founded">Est. 2022</div>
+      <div class="logo-name" data-editable="1" contenteditable="false">24seventeen</div>
+      <div class="logo-sub" data-editable="1" contenteditable="false">Estimating Services</div>
+      <div class="logo-tagline" data-editable="1" contenteditable="false">XXIV · XVII · Anno Domini</div>
+      <div class="logo-founded" data-editable="1" contenteditable="false">Est. 2022</div>
     </div>
   </div>
 
@@ -380,7 +429,7 @@ window.addEventListener('load', function(){
       <span style="cursor:pointer" onclick="navTab('samples')">Samples</span>
       <span style="cursor:pointer" onclick="document.getElementById('about-section').scrollIntoView({behavior:'smooth'})">About</span>
     </div>
-    <button class="nav-cta" onclick="openEstModal()">Get an Estimate</button>
+    <button class="nav-cta" onclick="openEstModal()" data-editable="1" contenteditable="false">Get an Estimate</button>
   </div>
 </nav>
 
@@ -388,43 +437,43 @@ window.addEventListener('load', function(){
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
-  <div class="hero-left"><div id="mobile-shield-hero" style="display:none"><div style="text-align:center;font-family:'Cinzel Decorative',serif;font-size:26px;font-weight:700;color:#c9a84c;letter-spacing:1px;padding-bottom:10px;text-shadow:0 0 14px rgba(201,168,76,0.6),0 0 30px rgba(201,168,76,0.3);">24SEVENTEEN</div><svg id="mobile-hero-shield" width="270" height="270" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"/><circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"/><path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.07)" stroke="#c9a84c" stroke-width="1.3"/><line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/><line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/><text x="29" y="32" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">XX</text><text x="51" y="32" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">IV</text><text x="29" y="54" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">XV</text><text x="51" y="54" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">II</text><circle cx="40" cy="40" r="2.5" fill="#c9a84c"/><circle cx="31" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"/><circle cx="40" cy="13.5" r="1.2" fill="rgba(201,168,76,0.88)"/><circle cx="49" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"/><path d="M36 69 Q40 73 44 69" stroke="rgba(201,168,76,0.4)" stroke-width="0.9" fill="none"/></svg></div>
+  <div class="hero-left"><div id="mobile-shield-hero" style="display:none"><div style="text-align:center;font-family:'Cinzel Decorative',serif;font-size:26px;font-weight:700;color:#c9a84c;letter-spacing:1px;padding-bottom:10px;text-shadow:0 0 14px rgba(201,168,76,0.6),0 0 30px rgba(201,168,76,0.3);">24SEVENTEEN</div><svg id="mobile-hero-shield" width="270" height="270" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"></circle><circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"></circle><path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.07)" stroke="#c9a84c" stroke-width="1.3"></path><line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"></line><line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"></line><text x="29" y="32" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">XX</text><text x="51" y="32" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">IV</text><text x="29" y="54" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">XV</text><text x="51" y="54" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="9" fill="#c9a84c" font-weight="700">II</text><circle cx="40" cy="40" r="2.5" fill="#c9a84c"></circle><circle cx="31" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"></circle><circle cx="40" cy="13.5" r="1.2" fill="rgba(201,168,76,0.88)"></circle><circle cx="49" cy="18" r="1.2" fill="rgba(201,168,76,0.88)"></circle><path d="M36 69 Q40 73 44 69" stroke="rgba(201,168,76,0.4)" stroke-width="0.9" fill="none"></path></svg></div>
     <div class="hero-ornament">
       <div class="orn-line"></div>
       <div class="orn-sym">✦ ✦ ✦</div>
       <div class="orn-line r"></div>
     </div>
-    <div class="hero-eyebrow">Electrical Estimating · 24 to 48 Hour Turnaround</div>
-    <h1>Bid <em>More.</em><br>Win <em>More.</em></h1>
-    <p class="hero-sub">We work more than around the clock — because 24/7 wasn't quite enough.</p>
-    <p class="hero-desc">Professional electrical estimating for residential and commercial contractors — built by estimators who've held the tools, read the drawings, and ran the jobs themselves.</p>
+    <div class="hero-eyebrow" data-editable="1" contenteditable="false">Electrical Estimating · 24 to 48 Hour Turnaround</div>
+    <h1 data-editable="1" contenteditable="false">Bid <em>More.</em><br>Win <em>More.</em></h1>
+    <p class="hero-sub" data-editable="1" contenteditable="false">We work more than around the clock — because 24/7 wasn't quite enough.</p>
+    <p class="hero-desc" data-editable="1" contenteditable="false">Professional electrical estimating for residential and commercial contractors — built by estimators who've held the tools, read the drawings, and ran the jobs themselves.</p>
     <div class="hero-btns">
-      <button class="btn-gold" onclick="openEstModal()">Get Your Estimate</button>
-      <button class="btn-outline">View Services</button>
+      <button class="btn-gold" onclick="openEstModal()" data-editable="1" contenteditable="false">Get Your Estimate</button>
+      <button class="btn-outline" data-editable="1" contenteditable="false">View Services</button>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-card">
-      <div class="hero-card-title">What You Get</div>
+      <div class="hero-card-title" data-editable="1" contenteditable="false">What You Get</div>
       <div class="hrow">
-        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="10" cy="10" r="8"/><polyline points="10,6 10,10 13,12"/></svg></div>
-        <div class="hrow-text"><strong>Fast Turnaround</strong><span>ROM in hours · Full package in 24–48 hrs</span></div>
+        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="10" cy="10" r="8"></circle><polyline points="10,6 10,10 13,12"></polyline></svg></div>
+        <div class="hrow-text"><strong data-editable="1" contenteditable="false">Fast Turnaround</strong><span data-editable="1" contenteditable="false">ROM in hours · Full package in 24–48 hrs</span></div>
       </div>
       <div class="hrow">
-        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="2" width="14" height="16" rx="1"/><line x1="6" y1="7" x2="14" y2="7"/><line x1="6" y1="10" x2="14" y2="10"/><line x1="6" y1="13" x2="10" y2="13"/></svg></div>
-        <div class="hrow-text"><strong>Full Documentation</strong><span>BOM, takeoff, proposal letter, bid summary</span></div>
+        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="2" width="14" height="16" rx="1"></rect><line x1="6" y1="7" x2="14" y2="7"></line><line x1="6" y1="10" x2="14" y2="10"></line><line x1="6" y1="13" x2="10" y2="13"></line></svg></div>
+        <div class="hrow-text"><strong data-editable="1" contenteditable="false">Full Documentation</strong><span data-editable="1" contenteditable="false">BOM, takeoff, proposal letter, bid summary</span></div>
       </div>
       <div class="hrow">
-        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M10 2l2.5 5.5H18l-4.5 3.3 1.7 5.4L10 13l-5.2 3.2 1.7-5.4L2 7.5h5.5z"/></svg></div>
-        <div class="hrow-text"><strong>Field-Calibrated</strong><span>Real on-the-tools experience, not guesswork</span></div>
+        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M10 2l2.5 5.5H18l-4.5 3.3 1.7 5.4L10 13l-5.2 3.2 1.7-5.4L2 7.5h5.5z"></path></svg></div>
+        <div class="hrow-text"><strong data-editable="1" contenteditable="false">Field-Calibrated</strong><span data-editable="1" contenteditable="false">Real on-the-tools experience, not guesswork</span></div>
       </div>
       <div class="hrow">
-        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="2" width="16" height="16" rx="1"/><polyline points="6,10 9,13 14,7"/></svg></div>
-        <div class="hrow-text"><strong>Your Numbers Applied</strong><span>Your labor rates, markups & taxes built in</span></div>
+        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="2" width="16" height="16" rx="1"></rect><polyline points="6,10 9,13 14,7"></polyline></svg></div>
+        <div class="hrow-text"><strong data-editable="1" contenteditable="false">Your Numbers Applied</strong><span data-editable="1" contenteditable="false">Your labor rates, markups &amp; taxes built in</span></div>
       </div>
       <div class="hrow">
-        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="3,10 8,4 12,8 17,3"/><line x1="3" y1="17" x2="17" y2="17"/></svg></div>
-        <div class="hrow-text"><strong>Res + Commercial</strong><span>Both markets · Any project size</span></div>
+        <div class="hrow-icon"><svg viewBox="0 0 20 20" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="3,10 8,4 12,8 17,3"></polyline><line x1="3" y1="17" x2="17" y2="17"></line></svg></div>
+        <div class="hrow-text"><strong data-editable="1" contenteditable="false">Res + Commercial</strong><span data-editable="1" contenteditable="false">Both markets · Any project size</span></div>
       </div>
     </div>
   </div>
@@ -433,10 +482,10 @@ window.addEventListener('load', function(){
 <!-- TRUST STRIP -->
 <div class="trust-strip">
   <div class="trust-inner">
-    <div class="titem"><div class="tval">24–48 hrs</div><div class="tlbl">Hour Turnaround</div></div>
-    <div class="titem"><div class="tval">100%</div><div class="tlbl">Field-Experienced</div></div>
-    <div class="titem"><div class="tval">Res + Com</div><div class="tlbl">Both Markets</div></div>
-    <div class="titem"><div class="tval">McCormick</div><div class="tlbl">Industry Software</div></div>
+    <div class="titem"><div class="tval" data-editable="1" contenteditable="false">24–48 hrs</div><div class="tlbl" data-editable="1" contenteditable="false">Hour Turnaround</div></div>
+    <div class="titem"><div class="tval" data-editable="1" contenteditable="false">100%</div><div class="tlbl" data-editable="1" contenteditable="false">Field-Experienced</div></div>
+    <div class="titem"><div class="tval" data-editable="1" contenteditable="false">Res + Com</div><div class="tlbl" data-editable="1" contenteditable="false">Both Markets</div></div>
+    <div class="titem"><div class="tval" data-editable="1" contenteditable="false">McCormick</div><div class="tlbl" data-editable="1" contenteditable="false">Industry Software</div></div>
   </div>
 </div>
 
@@ -446,49 +495,49 @@ window.addEventListener('load', function(){
 
     <div class="tabs-section-title" style="text-align:center;font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#c9a84c;letter-spacing:3px;text-transform:uppercase;margin-bottom:32px;text-shadow:0 0 10px rgba(201,168,76,0.3);">Our Services</div>
     <div class="tab-bar" style="overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;">
-      <button class="tab-btn active" onclick="switchTab('serve',this)">Who We Serve</button>
-      <button class="tab-btn" onclick="switchTab('services',this)">Services</button>
-      <button class="tab-btn" onclick="switchTab('process',this)">Process</button>
-      <button class="tab-btn" onclick="switchTab('projects',this)">Projects</button>
-      <button class="tab-btn" onclick="switchTab('samples',this)">Samples</button>
+      <button class="tab-btn active" onclick="switchTab('serve',this)" data-editable="1" contenteditable="false">Who We Serve</button>
+      <button class="tab-btn" onclick="switchTab('services',this)" data-editable="1" contenteditable="false">Services</button>
+      <button class="tab-btn" onclick="switchTab('process',this)" data-editable="1" contenteditable="false">Process</button>
+      <button class="tab-btn" onclick="switchTab('projects',this)" data-editable="1" contenteditable="false">Projects</button>
+      <button class="tab-btn" onclick="switchTab('samples',this)" data-editable="1" contenteditable="false">Samples</button>
     </div>
 
     <!-- TAB: WHO WE SERVE -->
     <div class="tab-pane active" id="tab-serve">
-      <div class="sec-label">Who We Serve</div>
-      <h2 class="sec-title">Built for contractors who are too busy to slow down</h2>
-      <p class="sec-desc">Whether chasing a bid deadline or building a client budget — we deliver what you need, when you need it.</p>
+      <div class="sec-label" data-editable="1" contenteditable="false">Who We Serve</div>
+      <h2 class="sec-title" data-editable="1" contenteditable="false">Built for contractors who are too busy to slow down</h2>
+      <p class="sec-desc" data-editable="1" contenteditable="false">Whether chasing a bid deadline or building a client budget — we deliver what you need, when you need it.</p>
       <div class="client-grid">
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M5 9V7a6 6 0 0112 0v2"/><rect x="3" y="9" width="16" height="11" rx="1"/><circle cx="11" cy="15" r="1.5" fill="#c9a84c"/></svg></div>
-          <div><div class="cc-name">Electrical Contractors</div><div class="cc-desc">Residential and commercial ECs who need accurate estimates without pulling a PM off the field.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M5 9V7a6 6 0 0112 0v2"></path><rect x="3" y="9" width="16" height="11" rx="1"></rect><circle cx="11" cy="15" r="1.5" fill="#c9a84c"></circle></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">Electrical Contractors</div><div class="cc-desc" data-editable="1" contenteditable="false">Residential and commercial ECs who need accurate estimates without pulling a PM off the field.</div></div>
         </div>
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="3,18 3,8 11,3 19,8 19,18"/><rect x="8" y="13" width="6" height="5"/></svg></div>
-          <div><div class="cc-name">General Contractors</div><div class="cc-desc">GCs who need a reliable electrical number for a lump-sum or hard-bid proposal on short notice.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="3,18 3,8 11,3 19,8 19,18"></polyline><rect x="8" y="13" width="6" height="5"></rect></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">General Contractors</div><div class="cc-desc" data-editable="1" contenteditable="false">GCs who need a reliable electrical number for a lump-sum or hard-bid proposal on short notice.</div></div>
         </div>
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="11" cy="8" r="4"/><path d="M3 19c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
-          <div><div class="cc-name">Home Builders</div><div class="cc-desc">Custom and production builders who need per-unit or whole-project electrical cost breakdowns.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="11" cy="8" r="4"></circle><path d="M3 19c0-4 3.6-7 8-7s8 3 8 7"></path></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">Home Builders</div><div class="cc-desc" data-editable="1" contenteditable="false">Custom and production builders who need per-unit or whole-project electrical cost breakdowns.</div></div>
         </div>
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="5" width="18" height="13" rx="1"/><polyline points="2,9 11,14 20,9"/></svg></div>
-          <div><div class="cc-name">Owners & Developers</div><div class="cc-desc">Owners who need an independent electrical budget check before breaking ground or securing financing.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="5" width="18" height="13" rx="1"></rect><polyline points="2,9 11,14 20,9"></polyline></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">Owners &amp; Developers</div><div class="cc-desc" data-editable="1" contenteditable="false">Owners who need an independent electrical budget check before breaking ground or securing financing.</div></div>
         </div>
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><line x1="3" y1="19" x2="19" y2="19"/><polyline points="5,19 5,9 11,4 17,9 17,19"/><rect x="8" y="14" width="6" height="5"/></svg></div>
-          <div><div class="cc-name">Subcontractors</div><div class="cc-desc">Subs who need to respond fast to a GC's ITB without tying up internal resources for days.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><line x1="3" y1="19" x2="19" y2="19"></line><polyline points="5,19 5,9 11,4 17,9 17,19"></polyline><rect x="8" y="14" width="6" height="5"></rect></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">Subcontractors</div><div class="cc-desc" data-editable="1" contenteditable="false">Subs who need to respond fast to a GC's ITB without tying up internal resources for days.</div></div>
         </div>
         <div class="cc">
-          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="3" width="16" height="16" rx="1"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="8" y1="14" x2="11" y2="14"/></svg></div>
-          <div><div class="cc-name">Lenders & Architects</div><div class="cc-desc">Anyone who needs a defensible electrical cost number tied to a specific set of construction documents.</div></div>
+          <div class="cc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="3" width="16" height="16" rx="1"></rect><line x1="8" y1="8" x2="14" y2="8"></line><line x1="8" y1="11" x2="14" y2="11"></line><line x1="8" y1="14" x2="11" y2="14"></line></svg></div>
+          <div><div class="cc-name" data-editable="1" contenteditable="false">Lenders &amp; Architects</div><div class="cc-desc" data-editable="1" contenteditable="false">Anyone who needs a defensible electrical cost number tied to a specific set of construction documents.</div></div>
         </div>
       </div>
 
       <!-- STATES WE SERVE -->
       <div style="margin-top:48px;">
-        <div class="sec-label" style="margin-bottom:14px;">Where We Work</div>
-        <p style="font-size:16px;color:rgba(232,223,200,0.6);font-style:italic;margin-bottom:24px;max-width:560px;">Currently serving contractors across these states — with more regions coming soon.</p>
+        <div class="sec-label" style="margin-bottom:14px;" data-editable="1" contenteditable="false">Where We Work</div>
+        <p style="font-size:16px;color:rgba(232,223,200,0.6);font-style:italic;margin-bottom:24px;max-width:560px;" data-editable="1" contenteditable="false">Currently serving contractors across these states — with more regions coming soon.</p>
         <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;">
 
           <div style="background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.2);padding:20px 16px;text-align:center;">
@@ -529,79 +578,79 @@ window.addEventListener('load', function(){
 
     </div>
     <div class="tab-pane" id="tab-services">
-      <div class="sec-label">Our Services</div>
-      <h2 class="sec-title">Choose the level of detail you need</h2>
-      <p class="sec-desc">From a fast ROM ballpark to a full competition-ready bid package — every deliverable built by estimators who've done the work. We also support architects, developers, change orders, procurement, and offer fully customized estimating systems for contractors who want to run their own numbers.</p>
+      <div class="sec-label" data-editable="1" contenteditable="false">Our Services</div>
+      <h2 class="sec-title" data-editable="1" contenteditable="false">Choose the level of detail you need</h2>
+      <p class="sec-desc" data-editable="1" contenteditable="false">From a fast ROM ballpark to a full competition-ready bid package — every deliverable built by estimators who've done the work. We also support architects, developers, change orders, procurement, and offer fully customized estimating systems for contractors who want to run their own numbers.</p>
       <div class="svc-grid">
         <div class="sc">
-          <span class="sc-badge bb">Quick Turnaround</span>
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="11" cy="11" r="9"/><polyline points="11,6 11,11 15,13"/></svg></div>
-          <div class="sc-name">ROM & Budget Estimate</div>
-          <div class="sc-desc">A Rough Order of Magnitude or budget-level estimate gives architects, developers, owners, and lenders a reliable cost range for go/no-go decisions, financing, permitting, or early-stage planning — without the full takeoff investment.</div>
+          <span class="sc-badge bb" data-editable="1" contenteditable="false">Quick Turnaround</span>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><circle cx="11" cy="11" r="9"></circle><polyline points="11,6 11,11 15,13"></polyline></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">ROM &amp; Budget Estimate</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">A Rough Order of Magnitude or budget-level estimate gives architects, developers, owners, and lenders a reliable cost range for go/no-go decisions, financing, permitting, or early-stage planning — without the full takeoff investment.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Rapid delivery</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ideal for architects, developers & finance teams</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Field-calibrated, not spreadsheet guesswork</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Loan, permit & feasibility support</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Rapid delivery</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Ideal for architects, developers &amp; finance teams</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Field-calibrated, not spreadsheet guesswork</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Loan, permit &amp; feasibility support</div>
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1"/><line x1="7" y1="7" x2="15" y2="7"/><line x1="7" y1="11" x2="15" y2="11"/><line x1="7" y1="15" x2="11" y2="15"/></svg></div>
-          <div class="sc-name">Bill of Materials</div>
-          <div class="sc-desc">A clean, itemized list of every material needed with total labor hours and hard cost pricing — the foundation for procurement, buyout, owner review, or subbing the work.</div>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="3" y="2" width="16" height="18" rx="1"></rect><line x1="7" y1="7" x2="15" y2="7"></line><line x1="7" y1="11" x2="15" y2="11"></line><line x1="7" y1="15" x2="11" y2="15"></line></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">Bill of Materials</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">A clean, itemized list of every material needed with total labor hours and hard cost pricing — the foundation for procurement, buyout, owner review, or subbing the work.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Itemized material list with quantities</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Total labor hours by trade class</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Hard cost material pricing</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ready for material procurement & buyout</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Itemized material list with quantities</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Total labor hours by trade class</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Hard cost material pricing</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Ready for material procurement &amp; buyout</div>
           </div>
         </div>
         <div class="sc feat">
-          <span class="sc-badge bg">Most Complete</span>
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="2" width="18" height="18" rx="1"/><line x1="6" y1="7" x2="16" y2="7"/><line x1="6" y1="10.5" x2="16" y2="10.5"/><line x1="6" y1="14" x2="11" y2="14"/><circle cx="15" cy="15" r="3"/><line x1="17" y1="17" x2="19" y2="19"/></svg></div>
-          <div class="sc-name">Full Package Estimate</div>
-          <div class="sc-desc">Everything needed to submit a winning bid — from digital takeoff through final bid summary, with your company's numbers built in.</div>
+          <span class="sc-badge bg" data-editable="1" contenteditable="false">Most Complete</span>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="2" width="18" height="18" rx="1"></rect><line x1="6" y1="7" x2="16" y2="7"></line><line x1="6" y1="10.5" x2="16" y2="10.5"></line><line x1="6" y1="14" x2="11" y2="14"></line><circle cx="15" cy="15" r="3"></circle><line x1="17" y1="17" x2="19" y2="19"></line></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">Full Package Estimate</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">Everything needed to submit a winning bid — from digital takeoff through final bid summary, with your company's numbers built in.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Digital takeoff from drawings</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Full BOM with pricing</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Your labor rates, markups & taxes applied</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Detailed proposal letter</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Inclusions, exclusions & clarifications</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Final bid summary + all supporting docs</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Digital takeoff from drawings</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Full BOM with pricing</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Your labor rates, markups &amp; taxes applied</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Detailed proposal letter</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Inclusions, exclusions &amp; clarifications</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Final bid summary + all supporting docs</div>
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M4 4h14v10H4z"/><line x1="8" y1="18" x2="14" y2="18"/><line x1="11" y1="14" x2="11" y2="18"/><line x1="8" y1="8" x2="14" y2="8"/><line x1="8" y1="11" x2="11" y2="11"/></svg></div>
-          <div class="sc-name">Change Order Estimating</div>
-          <div class="sc-desc">Field changes, scope additions, and owner-directed modifications priced accurately and defensibly — so you recover every dollar you're owed without leaving money on the table.</div>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><path d="M4 4h14v10H4z"></path><line x1="8" y1="18" x2="14" y2="18"></line><line x1="11" y1="14" x2="11" y2="18"></line><line x1="8" y1="8" x2="14" y2="8"></line><line x1="8" y1="11" x2="11" y2="11"></line></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">Change Order Estimating</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">Field changes, scope additions, and owner-directed modifications priced accurately and defensibly — so you recover every dollar you're owed without leaving money on the table.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Scope delta analysis</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Labor & material repricing</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Defensible backup documentation</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Fast turnaround for field conditions</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Scope delta analysis</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Labor &amp; material repricing</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Defensible backup documentation</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Fast turnaround for field conditions</div>
           </div>
         </div>
         <div class="sc">
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="2,16 6,10 10,13 15,6 20,9"/><line x1="2" y1="19" x2="20" y2="19"/></svg></div>
-          <div class="sc-name">Material Procurement Estimating</div>
-          <div class="sc-desc">Need a detailed material list built specifically for procurement? We produce clean, organized BOMs formatted for supplier quotes, PO generation, and project buyout — saving your team hours in the field office.</div>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><polyline points="2,16 6,10 10,13 15,6 20,9"></polyline><line x1="2" y1="19" x2="20" y2="19"></line></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">Material Procurement Estimating</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">Need a detailed material list built specifically for procurement? We produce clean, organized BOMs formatted for supplier quotes, PO generation, and project buyout — saving your team hours in the field office.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Procurement-ready format</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Supplier quote-ready line items</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Phase or system breakouts available</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Procurement-ready format</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Supplier quote-ready line items</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Phase or system breakouts available</div>
           </div>
         </div>
         <div class="sc feat">
-          <span class="sc-badge" style="background:rgba(56,200,253,0.15);color:rgba(56,200,253,0.9);border-color:rgba(56,200,253,0.3);">Be Your Own Estimator</span>
-          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="3" width="18" height="14" rx="1"/><line x1="7" y1="20" x2="15" y2="20"/><line x1="11" y1="17" x2="11" y2="20"/><circle cx="11" cy="10" r="3"/><line x1="14" y1="7" x2="16" y2="5"/></svg></div>
-          <div class="sc-name">Custom Estimating Systems</div>
-          <div class="sc-desc">We build fully functioning, professional estimating systems catered to your exact workflow — your labor rates, your markup structure, your deliverable format. Take control of your own numbers without hiring a full-time estimator.</div>
+          <span class="sc-badge" style="background:rgba(56,200,253,0.15);color:rgba(56,200,253,0.9);border-color:rgba(56,200,253,0.3);" data-editable="1" contenteditable="false">Be Your Own Estimator</span>
+          <div class="sc-icon"><svg viewBox="0 0 22 22" fill="none" stroke="#c9a84c" stroke-width="1.5"><rect x="2" y="3" width="18" height="14" rx="1"></rect><line x1="7" y1="20" x2="15" y2="20"></line><line x1="11" y1="17" x2="11" y2="20"></line><circle cx="11" cy="10" r="3"></circle><line x1="14" y1="7" x2="16" y2="5"></line></svg></div>
+          <div class="sc-name" data-editable="1" contenteditable="false">Custom Estimating Systems</div>
+          <div class="sc-desc" data-editable="1" contenteditable="false">We build fully functioning, professional estimating systems catered to your exact workflow — your labor rates, your markup structure, your deliverable format. Take control of your own numbers without hiring a full-time estimator.</div>
           <div class="incs">
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Built to your company's specific needs</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Residential, commercial, or service work</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Monthly rental, annual license, or outright purchase</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Training & onboarding included</div>
-            <div class="inc"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"/></svg>Ongoing support available</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Built to your company's specific needs</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Residential, commercial, or service work</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Monthly rental, annual license, or outright purchase</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Training &amp; onboarding included</div>
+            <div class="inc" data-editable="1" contenteditable="false"><svg class="chk" viewBox="0 0 16 16"><path d="M2 8l4 4 8-8" stroke="#c9a84c" stroke-width="1.5" fill="none"></path></svg>Ongoing support available</div>
           </div>
         </div>
       </div>
@@ -609,9 +658,9 @@ window.addEventListener('load', function(){
 
     <!-- TAB: PROJECTS COMPLETED -->
     <div class="tab-pane" id="tab-projects">
-      <div class="sec-label">Track Record</div>
-      <h2 class="sec-title">Projects Completed</h2>
-      <p class="sec-desc" style="margin-bottom:28px;">Electrical estimates delivered across residential, commercial, and ADU projects — grouped by scope and scale.</p>
+      <div class="sec-label" data-editable="1" contenteditable="false">Track Record</div>
+      <h2 class="sec-title" data-editable="1" contenteditable="false">Projects Completed</h2>
+      <p class="sec-desc" style="margin-bottom:28px;" data-editable="1" contenteditable="false">Electrical estimates delivered across residential, commercial, and ADU projects — grouped by scope and scale.</p>
 
       <!-- Top stats -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:36px;">
@@ -666,7 +715,7 @@ window.addEventListener('load', function(){
           <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);padding:16px 18px;">
             <div style="font-family:'Cinzel Decorative',serif;font-size:24px;color:#c9a84c;margin-bottom:4px;">18</div>
             <div style="font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:#e8dfc8;margin-bottom:2px;">ADU / JADU</div>
-            <div style="font-size:15px;color:rgba(232,223,200,0.45);font-style:italic;">Accessory & junior dwelling units</div>
+            <div style="font-size:15px;color:rgba(232,223,200,0.45);font-style:italic;">Accessory &amp; junior dwelling units</div>
           </div>
           <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);padding:16px 18px;">
             <div style="font-family:'Cinzel Decorative',serif;font-size:24px;color:#c9a84c;margin-bottom:4px;">9</div>
@@ -714,7 +763,7 @@ window.addEventListener('load', function(){
           <div style="background:rgba(56,200,253,0.03);border:1px solid rgba(56,200,253,0.15);padding:16px 18px;">
             <div style="font-family:'Cinzel Decorative',serif;font-size:24px;color:#38c8fd;margin-bottom:4px;">5</div>
             <div style="font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:#e8dfc8;margin-bottom:2px;">Industrial / Research</div>
-            <div style="font-size:15px;color:rgba(232,223,200,0.45);font-style:italic;">Labs, processing facilities, R&D</div>
+            <div style="font-size:15px;color:rgba(232,223,200,0.45);font-style:italic;">Labs, processing facilities, R&amp;D</div>
           </div>
         </div>
       </div>
@@ -759,9 +808,9 @@ window.addEventListener('load', function(){
 
     <!-- TAB: SAMPLES -->
     <div class="tab-pane" id="tab-samples">
-      <div class="sec-label">Sample Deliverables</div>
-      <h2 class="sec-title">What we deliver — at every level</h2>
-      <p class="sec-desc" style="margin-bottom:32px;">Every estimate we produce is complete, organized, and built for real decision-making. Below is a representative look at our deliverable types — identifying information redacted.</p>
+      <div class="sec-label" data-editable="1" contenteditable="false">Sample Deliverables</div>
+      <h2 class="sec-title" data-editable="1" contenteditable="false">What we deliver — at every level</h2>
+      <p class="sec-desc" style="margin-bottom:32px;" data-editable="1" contenteditable="false">Every estimate we produce is complete, organized, and built for real decision-making. Below is a representative look at our deliverable types — identifying information redacted.</p>
 
       <style>
         .col-sec{margin-bottom:44px;}
@@ -829,28 +878,28 @@ window.addEventListener('load', function(){
               <div style="font-size:16px;color:rgba(232,223,200,0.55);margin-bottom:10px;">Please find enclosed our response to your inquiry for the electrical scope of work. We look forward to furthering this relationship.</div>
               <div style="font-size:15px;font-weight:700;color:#c9a84c;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:3px;margin-bottom:7px;">Electrical Inclusions</div>
               <div style="font-size:15px;color:rgba(232,223,200,0.55);line-height:1.8;">
-                1. Modify existing distribution panels A, B &amp; C — installing breakers per panel schedule.<br/>
-                2. Install electrical feeds &amp; disconnects for mechanical equipment connections.<br/>
-                &nbsp;&nbsp;&nbsp;○ CU1, CU2, CU3, RTU1, KEF1, KEF2, and MUA1<br/>
-                3. Install owner-furnished EMT/THHN and MC cable — all branch circuits.<br/>
-                4. Install owner-furnished lighting &amp; power devices:<br/>
-                &nbsp;&nbsp;&nbsp;○ (27) 2×4 lay-in fixtures&nbsp; (5) Recessed LED downlights<br/>
-                &nbsp;&nbsp;&nbsp;○ (8) Emergency wall packs&nbsp; (3) Exit signs&nbsp; (6) Occ. Sensors<br/>
-                &nbsp;&nbsp;&nbsp;○ (41) Duplex receps&nbsp; (23) GFI duplex&nbsp; (2) GFI WP receps<br/>
+                1. Modify existing distribution panels A, B &amp; C — installing breakers per panel schedule.<br>
+                2. Install electrical feeds &amp; disconnects for mechanical equipment connections.<br>
+                &nbsp;&nbsp;&nbsp;○ CU1, CU2, CU3, RTU1, KEF1, KEF2, and MUA1<br>
+                3. Install owner-furnished EMT/THHN and MC cable — all branch circuits.<br>
+                4. Install owner-furnished lighting &amp; power devices:<br>
+                &nbsp;&nbsp;&nbsp;○ (27) 2×4 lay-in fixtures&nbsp; (5) Recessed LED downlights<br>
+                &nbsp;&nbsp;&nbsp;○ (8) Emergency wall packs&nbsp; (3) Exit signs&nbsp; (6) Occ. Sensors<br>
+                &nbsp;&nbsp;&nbsp;○ (41) Duplex receps&nbsp; (23) GFI duplex&nbsp; (2) GFI WP receps<br>
                 5. General testing and commissioning.
               </div>
               <div style="font-size:15px;font-weight:700;color:#c9a84c;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:3px;margin:10px 0 7px;">Electrical Exclusions</div>
               <div style="font-size:15px;color:rgba(232,223,200,0.45);line-height:1.8;">
-                1. All materials — to be provided by owner.<br/>
-                2. Demolition in its entirety.<br/>
-                3. Data, HVAC, fire alarm, security and A/V.<br/>
+                1. All materials — to be provided by owner.<br>
+                2. Demolition in its entirety.<br>
+                3. Data, HVAC, fire alarm, security and A/V.<br>
                 4. Builder's work — framing, penetrations, seals.
               </div>
               <div style="margin-top:12px;padding:8px 10px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);">
                 <div style="font-size:15px;font-weight:700;color:#c9a84c;margin-bottom:4px;">Pricing</div>
                 <div style="display:flex;justify-content:space-between;font-size:15px;"><span style="color:rgba(232,223,200,0.6);">Main Bid</span><span style="color:#c9a84c;font-weight:700;font-family:monospace;">$45,125.00</span></div>
               </div>
-              <div style="margin-top:12px;font-size:15px;color:rgba(232,223,200,0.35);">Yours faithfully,<br/><span style="font-style:italic;font-size:16px;font-family:Georgia,serif;"><span class="rx">████████████</span></span><br/><span class="rx">████████████</span> · Owner</div>
+              <div style="margin-top:12px;font-size:15px;color:rgba(232,223,200,0.35);">Yours faithfully,<br><span style="font-style:italic;font-size:16px;font-family:Georgia,serif;"><span class="rx">████████████</span></span><br><span class="rx">████████████</span> · Owner</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Commercial Proposal</span><span class="dtag-t">Restaurant TI · Labor-only scope</span></div>
@@ -869,25 +918,25 @@ window.addEventListener('load', function(){
               </div>
               <div style="font-size:15px;font-weight:700;color:#c9a84c;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:3px;margin-bottom:7px;">Electrical Inclusions</div>
               <div style="font-size:15px;color:rgba(232,223,200,0.55);line-height:1.8;">
-                1. Provide and install 200A Sub-Panel, 120/240V, N3R, 40 circuit.<br/>
-                2. Romex cabling — all power &amp; lighting branch circuits.<br/>
-                3. Install owner-furnished lighting package:<br/>
-                &nbsp;&nbsp;&nbsp;○ (1) Pendant; (3) Exterior wall sconces<br/>
-                4. Fixtures &amp; devices (white plates):<br/>
-                &nbsp;&nbsp;&nbsp;○ (31) 4" halo recessed downlights; (1) Fan/light combo<br/>
-                &nbsp;&nbsp;&nbsp;○ (10) Slide dimmers; (6) SP switches; (2) 3-way switches<br/>
-                5. Power &amp; Mechanical devices:<br/>
-                &nbsp;&nbsp;&nbsp;○ (19) 15A duplex; (7) 15A GFI; (5) 15A GFI WP<br/>
-                &nbsp;&nbsp;&nbsp;○ (1) 50A 240V oven recep; (1) 30A 240V washer/dryer<br/>
-                &nbsp;&nbsp;&nbsp;○ (1) 60A HVAC disconnect; (1) 30A water heater conn.<br/>
-                &nbsp;&nbsp;&nbsp;○ (2) 120V smoke detectors; (1) CO/SM detector<br/>
+                1. Provide and install 200A Sub-Panel, 120/240V, N3R, 40 circuit.<br>
+                2. Romex cabling — all power &amp; lighting branch circuits.<br>
+                3. Install owner-furnished lighting package:<br>
+                &nbsp;&nbsp;&nbsp;○ (1) Pendant; (3) Exterior wall sconces<br>
+                4. Fixtures &amp; devices (white plates):<br>
+                &nbsp;&nbsp;&nbsp;○ (31) 4" halo recessed downlights; (1) Fan/light combo<br>
+                &nbsp;&nbsp;&nbsp;○ (10) Slide dimmers; (6) SP switches; (2) 3-way switches<br>
+                5. Power &amp; Mechanical devices:<br>
+                &nbsp;&nbsp;&nbsp;○ (19) 15A duplex; (7) 15A GFI; (5) 15A GFI WP<br>
+                &nbsp;&nbsp;&nbsp;○ (1) 50A 240V oven recep; (1) 30A 240V washer/dryer<br>
+                &nbsp;&nbsp;&nbsp;○ (1) 60A HVAC disconnect; (1) 30A water heater conn.<br>
+                &nbsp;&nbsp;&nbsp;○ (2) 120V smoke detectors; (1) CO/SM detector<br>
                 6. (3) TV outlets with Cat6 to utility comms cabinet.
               </div>
               <div style="margin-top:12px;padding:8px 10px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);">
                 <div style="font-size:15px;font-weight:700;color:#c9a84c;margin-bottom:4px;">Pricing</div>
                 <div style="display:flex;justify-content:space-between;font-size:15px;"><span style="color:rgba(232,223,200,0.6);">Main Bid</span><span style="color:#c9a84c;font-weight:700;font-family:monospace;">$37,500.00</span></div>
               </div>
-              <div style="margin-top:12px;font-size:15px;color:rgba(232,223,200,0.35);">Yours faithfully,<br/><span style="font-style:italic;font-size:16px;font-family:Georgia,serif;"><span class="rx">████████████</span></span><br/><span class="rx">████████████</span> · Owner</div>
+              <div style="margin-top:12px;font-size:15px;color:rgba(232,223,200,0.35);">Yours faithfully,<br><span style="font-style:italic;font-size:16px;font-family:Georgia,serif;"><span class="rx">████████████</span></span><br><span class="rx">████████████</span> · Owner</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Residential Proposal</span><span class="dtag-t">New ADU · Full material &amp; labor</span></div>
@@ -919,30 +968,30 @@ window.addEventListener('load', function(){
               </div>
               <div style="font-size:12px;color:rgba(201,168,76,0.6);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Cost Breakdown</div>
               <table class="st" style="margin-bottom:10px;">
-                <tr><th>Category</th><th style="text-align:right;">$/SqFt %</th><th style="text-align:right;">Amount</th></tr>
+                <tbody><tr><th>Category</th><th style="text-align:right;">$/SqFt %</th><th style="text-align:right;">Amount</th></tr>
                 <tr><td>Materials</td><td class="num">30.10%</td><td class="num">$16,527</td></tr>
                 <tr><td>Labor</td><td class="num">64.76%</td><td class="num">$35,557</td></tr>
                 <tr><td>Direct Job Exp.</td><td class="num">1.64%</td><td class="num">$900</td></tr>
                 <tr><td>Equipment Rental</td><td class="num">3.50%</td><td class="num">$1,920</td></tr>
                 <tr class="tot"><td>Total Raw Cost</td><td class="num">—</td><td class="num">$54,905</td></tr>
-              </table>
+              </tbody></table>
               <div style="font-size:12px;color:rgba(201,168,76,0.6);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Markup Structure</div>
               <table class="st" style="margin-bottom:10px;">
-                <tr><th>Item</th><th style="text-align:right;">OH +10%</th><th style="text-align:right;">Profit +10%</th></tr>
+                <tbody><tr><th>Item</th><th style="text-align:right;">OH +10%</th><th style="text-align:right;">Profit +10%</th></tr>
                 <tr><td>Materials</td><td class="num">$18,181</td><td class="num">$19,999</td></tr>
                 <tr><td>Labor</td><td class="num">$39,113</td><td class="num">$43,024</td></tr>
                 <tr><td>Equip/DJE</td><td class="num">$3,102</td><td class="num">$3,412</td></tr>
                 <tr class="tot"><td>Total</td><td class="num">$60,396</td><td class="num">$66,435</td></tr>
-              </table>
+              </tbody></table>
               <div style="font-size:12px;color:rgba(201,168,76,0.6);margin-bottom:4px;text-transform:uppercase;letter-spacing:.5px;">Tax Report</div>
               <table class="st">
-                <tr><th>Taxed Item</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Tax $</th></tr>
+                <tbody><tr><th>Taxed Item</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Tax $</th></tr>
                 <tr><td>Materials $16,528</td><td class="num">9.25%</td><td class="num">$1,529</td></tr>
                 <tr><td>Labor $35,557</td><td class="num">9.25%</td><td class="num">$3,289</td></tr>
                 <tr><td>DJE $900</td><td class="num">9.25%</td><td class="num">$83</td></tr>
                 <tr><td>Equipment $1,920</td><td class="num">9.25%</td><td class="num">$178</td></tr>
                 <tr class="tot"><td>Total Tax</td><td class="num">—</td><td class="num">$5,079</td></tr>
-              </table>
+              </tbody></table>
               <div style="margin-top:8px;font-size:11px;color:rgba(232,223,200,0.2);text-align:right;">McCormick Systems Inc. · <span class="rx">██████████</span></div>
             </div>
             <div class="dv"></div>
@@ -1048,7 +1097,7 @@ window.addEventListener('load', function(){
             <div class="di nodim" style="font-size:10.5px;font-family:monospace;">
               <div style="font-family:'Cinzel',serif;font-size:15px;color:#c9a84c;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:5px;margin-bottom:8px;">Bill of Materials — Commercial TI · Learning Center Retrofit</div>
               <table class="st">
-                <tr><th>Item #</th><th>Description</th><th style="text-align:right;">Qty</th><th style="text-align:right;">Unit Price</th><th style="text-align:right;">Ext Price</th><th style="text-align:right;">Labor Hrs</th></tr>
+                <tbody><tr><th>Item #</th><th>Description</th><th style="text-align:right;">Qty</th><th style="text-align:right;">Unit Price</th><th style="text-align:right;">Ext Price</th><th style="text-align:right;">Labor Hrs</th></tr>
                 <tr><td colspan="6" style="color:rgba(201,168,76,0.5);font-size:12px;padding-top:6px;">BRANCH ROUGH</td></tr>
                 <tr><td>424</td><td>ARL Snap2it MC Connector</td><td class="num">173.56</td><td class="num">$142.26/C</td><td class="num">$246.90</td><td class="num">8.68</td></tr>
                 <tr><td>428</td><td>Stackable Cable Strap</td><td class="num">457.11</td><td class="num">$33.98/C</td><td class="num">$155.33</td><td class="num">11.43</td></tr>
@@ -1068,7 +1117,7 @@ window.addEventListener('load', function(){
                 <tr><td>24554</td><td>3-Way Toggle Switch 15A Spec.</td><td class="num">8</td><td class="num">$1,074.00/C</td><td class="num">$85.92</td><td class="num">1.60</td></tr>
                 <tr><td>24552</td><td>SP Toggle Switch 15A Spec.</td><td class="num">1</td><td class="num">$425.00/C</td><td class="num">$4.25</td><td class="num">0.20</td></tr>
                 <tr class="tot"><td colspan="4">TOTAL MATERIAL / TOTAL LABOR HOURS</td><td class="num">$13,773.24</td><td class="num">240.42</td></tr>
-              </table>
+              </tbody></table>
               <div style="margin-top:6px;font-size:11px;color:rgba(232,223,200,0.2);text-align:right;">McCormick Systems Inc. · Job #<span class="rx">██</span> · <span class="rx">████████████</span></div>
             </div>
             <div class="dv"></div>
@@ -1080,25 +1129,25 @@ window.addEventListener('load', function(){
             <div class="di nodim" style="font-size:10.5px;font-family:monospace;">
               <div style="font-family:'Cinzel',serif;font-size:15px;color:#c9a84c;border-bottom:1px solid rgba(201,168,76,0.2);padding-bottom:5px;margin-bottom:8px;">Large Residential Estimate — Summary</div>
               <table class="st" style="margin-bottom:10px;">
-                <tr><th>Cost Category</th><th style="text-align:right;">Raw Cost</th><th style="text-align:right;">% of Job</th></tr>
+                <tbody><tr><th>Cost Category</th><th style="text-align:right;">Raw Cost</th><th style="text-align:right;">% of Job</th></tr>
                 <tr><td>Materials</td><td class="num">$32,605</td><td class="num">20.22%</td></tr>
                 <tr><td>Labor — J/Mn Wireman</td><td class="num">$111,172</td><td class="num">—</td></tr>
                 <tr><td>Labor — Foreman</td><td class="num">$17,476</td><td class="num">—</td></tr>
                 <tr><td>Total Labor</td><td class="num">$128,648</td><td class="num">79.78%</td></tr>
                 <tr class="tot"><td>Total Raw Cost</td><td class="num">$161,253</td><td class="num">100%</td></tr>
-              </table>
+              </tbody></table>
               <table class="st" style="margin-bottom:10px;">
-                <tr><th>Markup Structure</th><th style="text-align:right;">Overhead</th><th style="text-align:right;">Profit</th></tr>
+                <tbody><tr><th>Markup Structure</th><th style="text-align:right;">Overhead</th><th style="text-align:right;">Profit</th></tr>
                 <tr><td>Materials $32,605</td><td class="num">$35,865</td><td class="num">$39,452</td></tr>
                 <tr><td>Labor $128,648</td><td class="num">$141,513</td><td class="num">$155,664</td></tr>
                 <tr class="tot"><td>Total</td><td class="num">$177,378</td><td class="num">$195,116</td></tr>
-              </table>
+              </tbody></table>
               <table class="st" style="margin-bottom:10px;">
-                <tr><th>Labor Class</th><th style="text-align:right;">Hours</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Cost</th></tr>
+                <tbody><tr><th>Labor Class</th><th style="text-align:right;">Hours</th><th style="text-align:right;">Rate</th><th style="text-align:right;">Cost</th></tr>
                 <tr><td>Foreman 20%</td><td class="num">145.63</td><td class="num">$120/hr</td><td class="num">$17,476</td></tr>
                 <tr><td>J/Mn Wireman 80%</td><td class="num">582.52</td><td class="num">$95/hr</td><td class="num">$111,172</td></tr>
                 <tr class="tot"><td>Total</td><td class="num">728.15</td><td class="num">$176.68 burden</td><td class="num">$128,648</td></tr>
-              </table>
+              </tbody></table>
               <div style="padding:8px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.15);">
                 <div style="display:flex;justify-content:space-between;font-size:16px;margin-bottom:3px;"><span style="color:rgba(232,223,200,0.5);">Adjusted Sell Price</span><span style="color:#c9a84c;font-weight:700;">$198,130.00</span></div>
                 <div style="display:flex;justify-content:space-between;font-size:15px;"><span style="color:rgba(232,223,200,0.35);">Return %</span><span style="color:rgba(201,168,76,0.7);">17.09%</span></div>
@@ -1229,7 +1278,7 @@ window.addEventListener('load', function(){
                 <div style="display:flex;justify-content:space-between;"><span style="color:rgba(232,223,200,0.4);">Tax</span><span style="color:#c9a84c;">$244.51</span></div>
                 <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(201,168,76,0.2);padding-top:3px;"><span style="color:#c9a84c;font-weight:700;">Sell Price</span><span style="color:#c9a84c;font-weight:700;">$9,380.00</span></div>
               </div>
-              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 53.11 · $/SqFt: $56.08<br/>Return: 13.23% · Workers: 1.23/day</div>
+              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 53.11 · $/SqFt: $56.08<br>Return: 13.23% · Workers: 1.23/day</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Small TI · Pool Bar</span><span class="dtag-t">$9,380 bid</span></div>
@@ -1245,7 +1294,7 @@ window.addEventListener('load', function(){
                 <div style="display:flex;justify-content:space-between;"><span style="color:rgba(232,223,200,0.4);">Profit 10%</span><span style="color:#c9a84c;">$4,102.23</span></div>
                 <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(201,168,76,0.2);padding-top:3px;"><span style="color:#c9a84c;font-weight:700;">Sell Price</span><span style="color:#c9a84c;font-weight:700;">$45,125.00</span></div>
               </div>
-              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 416.68 · Workers: 3.00/day<br/>Return: 17.36% · Labor risk: 11%</div>
+              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 416.68 · Workers: 3.00/day<br>Return: 17.36% · Labor risk: 11%</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Restaurant TI</span><span class="dtag-t">$45,125 · Labor only</span></div>
@@ -1263,7 +1312,7 @@ window.addEventListener('load', function(){
                 <div style="display:flex;justify-content:space-between;"><span style="color:rgba(232,223,200,0.4);">Tax</span><span style="color:#c9a84c;">$5,079</span></div>
                 <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(201,168,76,0.2);padding-top:3px;"><span style="color:#c9a84c;font-weight:700;">Sell Price</span><span style="color:#c9a84c;font-weight:700;">$72,530.00</span></div>
               </div>
-              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 264.46 · Return: 17.30%<br/>3 labor classes · Equipment rental incl.</div>
+              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 264.46 · Return: 17.30%<br>3 labor classes · Equipment rental incl.</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Commercial Retrofit</span><span class="dtag-t">$72,530 · Full material &amp; labor</span></div>
@@ -1280,7 +1329,7 @@ window.addEventListener('load', function(){
                 <div style="display:flex;justify-content:space-between;"><span style="color:rgba(232,223,200,0.4);">Tax</span><span style="color:#c9a84c;">$3,016</span></div>
                 <div style="display:flex;justify-content:space-between;border-top:1px solid rgba(201,168,76,0.2);padding-top:3px;"><span style="color:#c9a84c;font-weight:700;">Sell Price</span><span style="color:#c9a84c;font-weight:700;">$198,130.00</span></div>
               </div>
-              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 728.15 · Return: 17.09%<br/>2 labor classes · Union burden rates</div>
+              <div style="font-size:11px;color:rgba(232,223,200,0.3);">Hours: 728.15 · Return: 17.09%<br>2 labor classes · Union burden rates</div>
             </div>
             <div class="dv"></div>
             <div class="dtag"><span class="dtag-n">Large Residential</span><span class="dtag-t">$198K · 728 labor hours</span></div>
@@ -1300,21 +1349,21 @@ window.addEventListener('load', function(){
     <div class="tab-pane" id="tab-process">
       <div class="how-grid">
         <div>
-          <div class="sec-label">How It Works</div>
-          <h2 class="sec-title">From drawing set to deliverable — fast.</h2>
-          <p class="sec-desc">Submit your plans and we confirm scope, turnaround, and delivery before starting. No surprises. No delays.</p>
+          <div class="sec-label" data-editable="1" contenteditable="false">How It Works</div>
+          <h2 class="sec-title" data-editable="1" contenteditable="false">From drawing set to deliverable — fast.</h2>
+          <p class="sec-desc" data-editable="1" contenteditable="false">Submit your plans and we confirm scope, turnaround, and delivery before starting. No surprises. No delays.</p>
           <div class="sw-strip">
-            <div class="sw-pill">✦ McCormick PRO</div>
-            <div class="sw-pill">✦ Digital Takeoff</div>
-            <div class="sw-pill">✦ BOM Export</div>
-            <div class="sw-pill">✦ Bid Summary</div>
+            <div class="sw-pill" data-editable="1" contenteditable="false">✦ McCormick PRO</div>
+            <div class="sw-pill" data-editable="1" contenteditable="false">✦ Digital Takeoff</div>
+            <div class="sw-pill" data-editable="1" contenteditable="false">✦ BOM Export</div>
+            <div class="sw-pill" data-editable="1" contenteditable="false">✦ Bid Summary</div>
           </div>
         </div>
         <div class="steps">
-          <div class="step"><div class="snum">I</div><div><div class="stitle">Submit Your Drawings</div><div class="stext">Send the drawing set and project details — scope, special conditions, phasing. We review and respond fast.</div></div></div>
-          <div class="step"><div class="snum">II</div><div><div class="stitle">We Confirm Scope & Turnaround</div><div class="stext">ROM, BOM, full package, or custom — we lock in the deliverable and delivery date before starting.</div></div></div>
-          <div class="step"><div class="snum">III</div><div><div class="stitle">Takeoff & Estimate</div><div class="stext">Digital takeoff, material pricing, labor hours — run through McCormick PRO and cross-checked by a field estimator.</div></div></div>
-          <div class="step"><div class="snum">IV</div><div><div class="stitle">Delivery & Review</div><div class="stext">Full export package delivered within the agreed window. We walk through it with you and answer scope questions.</div></div></div>
+          <div class="step"><div class="snum">I</div><div><div class="stitle" data-editable="1" contenteditable="false">Submit Your Drawings</div><div class="stext" data-editable="1" contenteditable="false">Send the drawing set and project details — scope, special conditions, phasing. We review and respond fast.</div></div></div>
+          <div class="step"><div class="snum">II</div><div><div class="stitle" data-editable="1" contenteditable="false">We Confirm Scope &amp; Turnaround</div><div class="stext" data-editable="1" contenteditable="false">ROM, BOM, full package, or custom — we lock in the deliverable and delivery date before starting.</div></div></div>
+          <div class="step"><div class="snum">III</div><div><div class="stitle" data-editable="1" contenteditable="false">Takeoff &amp; Estimate</div><div class="stext" data-editable="1" contenteditable="false">Digital takeoff, material pricing, labor hours — run through McCormick PRO and cross-checked by a field estimator.</div></div></div>
+          <div class="step"><div class="snum">IV</div><div><div class="stitle" data-editable="1" contenteditable="false">Delivery &amp; Review</div><div class="stext" data-editable="1" contenteditable="false">Full export package delivered within the agreed window. We walk through it with you and answer scope questions.</div></div></div>
         </div>
       </div>
     </div>
@@ -1325,9 +1374,9 @@ window.addEventListener('load', function(){
 <!-- WHY US -->
 <section class="section s-mid" id="about-section">
   <div class="section-inner">
-    <div class="sec-label">About Us</div>
-    <h2 class="sec-title">Built by estimators who ran the work</h2>
-    <p class="sec-desc" style="max-width:680px;margin-bottom:40px;">Our team brings over 50 combined years of field experience — from journeyman wireman to electrical supervisor to senior estimator. We've pulled wire, run conduit, supervised crews, managed complex projects, and won hundreds of millions in competitive bids. When we estimate your project, we're drawing on that entire body of work.</p>
+    <div class="sec-label" data-editable="1" contenteditable="false">About Us</div>
+    <h2 class="sec-title" data-editable="1" contenteditable="false">Built by estimators who ran the work</h2>
+    <p class="sec-desc" style="max-width:680px;margin-bottom:40px;" data-editable="1" contenteditable="false">Our team brings over 50 combined years of field experience — from journeyman wireman to electrical supervisor to senior estimator. We've pulled wire, run conduit, supervised crews, managed complex projects, and won hundreds of millions in competitive bids. When we estimate your project, we're drawing on that entire body of work.</p>
 
     <!-- Two estimator profiles — no names, role-based -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:44px;" id="about-estimators" class="estimators-grid">
@@ -1336,7 +1385,7 @@ window.addEventListener('load', function(){
       <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.18);padding:28px;">
         <div style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:8px;">Senior Estimator — Field Background</div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:17px;color:#c9a84c;margin-bottom:14px;line-height:1.3;">IBEW Journeyman · Supervisor · Estimator</div>
-        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Career began in the field with several local residential electrical companies, working on high-profile custom homes, multi-family developments, and commercial projects throughout the region — building a strong foundation in real-world installation before entering the IBEW apprenticeship program. Advanced through journeyman and foreman roles on federal installations, hospital systems, and university facilities, then moved into supervision on major healthcare and commercial projects internationally before transitioning fully into estimating. Maintains a 30–40% award rate on competitive bids across residential, commercial, federal, and renewable energy sectors.</p>
+        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;" data-editable="1" contenteditable="false">Career began in the field with several local residential electrical companies, working on high-profile custom homes, multi-family developments, and commercial projects throughout the region — building a strong foundation in real-world installation before entering the IBEW apprenticeship program. Advanced through journeyman and foreman roles on federal installations, hospital systems, and university facilities, then moved into supervision on major healthcare and commercial projects internationally before transitioning fully into estimating. Maintains a 30–40% award rate on competitive bids across residential, commercial, federal, and renewable energy sectors.</p>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
             <span style="color:#c9a84c;flex-shrink:0;">✦</span>Field background: residential, multi-family, and commercial — high-profile projects
@@ -1361,9 +1410,9 @@ window.addEventListener('load', function(){
 
       <!-- Estimator 2 -->
       <div style="background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.18);padding:28px;">
-        <div style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:8px;">Senior Estimator — Commercial & Federal</div>
+        <div style="font-family:'Cinzel',serif;font-size:16px;letter-spacing:2px;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:8px;">Senior Estimator — Commercial &amp; Federal</div>
         <div style="font-family:'Cinzel Decorative',serif;font-size:17px;color:#c9a84c;margin-bottom:14px;line-height:1.3;">PM · Estimator · 23+ Years Experience</div>
-        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;">Electrical career rooted in residential and multi-family work — starting as a residential electrician and service technician, then rising to manage an entire service department for a large electrical contractor. That hands-on service and operations background became the foundation for over two decades of estimating and project management across commercial, industrial, government, and mission-critical environments. Averages $36M in awarded contracts annually. Deep expertise in BESS, MV distribution, substations, and critical power systems. Has managed electrical services across dozens of federal agencies — USACE, NASA, NAVFAC, USN, USAF, USMC — under both design-bid-build and design-build delivery.</p>
+        <p style="font-size:15px;color:rgba(232,223,200,0.7);line-height:1.8;margin-bottom:18px;" data-editable="1" contenteditable="false">Electrical career rooted in residential and multi-family work — starting as a residential electrician and service technician, then rising to manage an entire service department for a large electrical contractor. That hands-on service and operations background became the foundation for over two decades of estimating and project management across commercial, industrial, government, and mission-critical environments. Averages $36M in awarded contracts annually. Deep expertise in BESS, MV distribution, substations, and critical power systems. Has managed electrical services across dozens of federal agencies — USACE, NASA, NAVFAC, USN, USAF, USMC — under both design-bid-build and design-build delivery.</p>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:16px;color:rgba(232,223,200,0.6);">
             <span style="color:#c9a84c;flex-shrink:0;">✦</span>Residential electrician, service tech, and service department manager — large EC
@@ -1420,8 +1469,8 @@ window.addEventListener('load', function(){
   <div class="qbar-overlay"></div>
   <div class="qbar-inner">
     <span class="qbar-open">"</span>
-    <blockquote>They've read the drawings, run the job, and know the difference between what's on paper and what it actually takes to build it.</blockquote>
-    <cite>— Testimonia Clientium</cite>
+    <blockquote data-editable="1" contenteditable="false">They've read the drawings, run the job, and know the difference between what's on paper and what it actually takes to build it.</blockquote>
+    <cite data-editable="1" contenteditable="false">— Testimonia Clientium</cite>
   </div>
 </div>
 
@@ -1430,11 +1479,11 @@ window.addEventListener('load', function(){
   <div class="cta-bg"></div>
   <div class="cta-overlay"></div>
   <div class="cta-inner">
-    <h2>Ready to stop leaving bids on the table?</h2>
-    <p>Submit your drawing set and we'll respond with scope and turnaround time — fast.</p>
-    <p class="cta-latin" style="display:none;"></p>
-    <button class="btn-dark" onclick="openEstModal()">Begin Your Estimate Request</button>
-    <div class="cta-note">Response within 1 business hour &nbsp;·&nbsp; 24–48 hr delivery &nbsp;·&nbsp; Est. 2022</div>
+    <h2 data-editable="1" contenteditable="false">Ready to stop leaving bids on the table?</h2>
+    <p data-editable="1" contenteditable="false">Submit your drawing set and we'll respond with scope and turnaround time — fast.</p>
+    <p class="cta-latin" style="display:none;" data-editable="1" contenteditable="false"></p>
+    <button class="btn-dark" onclick="openEstModal()" data-editable="1" contenteditable="false">Begin Your Estimate Request</button>
+    <div class="cta-note" data-editable="1" contenteditable="false">Response within 1 business hour &nbsp;·&nbsp; 24–48 hr delivery &nbsp;·&nbsp; Est. 2022</div>
   </div>
 </div>
 
@@ -1446,39 +1495,39 @@ window.addEventListener('load', function(){
         <div class="fb-logo-row">
           <!-- Footer logo emblem (slightly smaller) -->
           <svg width="52" height="52" viewBox="0 0 80 80" fill="none">
-            <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"/>
-            <circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"/>
-            <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"/>
-            <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"/>
-            <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"/>
+            <circle cx="40" cy="40" r="38" stroke="#c9a84c" stroke-width="0.7" stroke-dasharray="2.5 3.5"></circle>
+            <circle cx="40" cy="40" r="32" stroke="rgba(201,168,76,0.62)" stroke-width="0.6"></circle>
+            <path d="M40 8 L63 18 L63 40 Q63 59 40 72 Q17 59 17 40 L17 18 Z" fill="rgba(201,168,76,0.06)" stroke="#c9a84c" stroke-width="1.2"></path>
+            <line x1="17" y1="40" x2="63" y2="40" stroke="#c9a84c" stroke-width="1.2"></line>
+            <line x1="40" y1="13" x2="40" y2="68" stroke="#c9a84c" stroke-width="1.2"></line>
             <text x="28" y="31" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="11" fill="#c9a84c" font-weight="700">XX</text>
             <text x="52" y="31" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="11" fill="#c9a84c" font-weight="700">IV</text>
             <text x="27" y="58" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="11" fill="#c9a84c" font-weight="700">XV</text>
             <text x="53" y="58" text-anchor="middle" font-family="'Cinzel Decorative',serif" font-size="11" fill="#c9a84c" font-weight="700">II</text>
-            <circle cx="40" cy="40" r="2.5" fill="#c9a84c"/>
-            <circle cx="31" cy="18" r="1.1" fill="rgba(201,168,76,0.55)"/>
-            <circle cx="40" cy="13.5" r="1.1" fill="rgba(201,168,76,0.55)"/>
-            <circle cx="49" cy="18" r="1.1" fill="rgba(201,168,76,0.55)"/>
+            <circle cx="40" cy="40" r="2.5" fill="#c9a84c"></circle>
+            <circle cx="31" cy="18" r="1.1" fill="rgba(201,168,76,0.55)"></circle>
+            <circle cx="40" cy="13.5" r="1.1" fill="rgba(201,168,76,0.55)"></circle>
+            <circle cx="49" cy="18" r="1.1" fill="rgba(201,168,76,0.55)"></circle>
           </svg>
           <div>
-            <div class="fb-name">24seventeen</div>
+            <div class="fb-name" data-editable="1" contenteditable="false">24seventeen</div>
             <div class="fb-sub">Estimating Services · Est. 2022</div>
           </div>
         </div>
-        <div class="fb-desc">Professional electrical estimating by estimators who've held the tools and ran the work. Fast, accurate, and built around your numbers.<br><br><em style="font-family:'Cinzel',serif;font-size:15px;color:rgba(201,168,76,0.62);letter-spacing:1.5px;">Fide et Opere — By Faith and Work</em></div>
+        <div class="fb-desc" data-editable="1" contenteditable="false">Professional electrical estimating by estimators who've held the tools and ran the work. Fast, accurate, and built around your numbers.<br><br><em style="font-family:'Cinzel',serif;font-size:15px;color:rgba(201,168,76,0.62);letter-spacing:1.5px;">Fide et Opere — By Faith and Work</em></div>
       </div>
       <div class="fcol">
-        <h4>Services</h4>
-        <span style="cursor:pointer">ROM Estimate</span>
-        <span style="cursor:pointer">Bill of Materials</span>
-        <span style="cursor:pointer">Full Package</span>
-        <span style="cursor:pointer">Custom Scope</span>
+        <h4 data-editable="1" contenteditable="false">Services</h4>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">ROM Estimate</span>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">Bill of Materials</span>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">Full Package</span>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">Custom Scope</span>
       </div>
       <div class="fcol">
-        <h4>Company</h4>
-        <span style="cursor:pointer">About Us</span>
-        <span style="cursor:pointer" onclick="navTab('process')">Process</span>
-        <span style="cursor:pointer">Samples</span>
+        <h4 data-editable="1" contenteditable="false">Company</h4>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">About Us</span>
+        <span style="cursor:pointer" onclick="navTab('process')" data-editable="1" contenteditable="false">Process</span>
+        <span style="cursor:pointer" data-editable="1" contenteditable="false">Samples</span>
       </div>
     </div>
 
@@ -1487,20 +1536,20 @@ window.addEventListener('load', function(){
 
       <!-- LEFT: copyright text -->
       <div style="display:flex;flex-direction:column;gap:4px;">
-        <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;">© 2022–2025 24seventeen LLC</span>
+        <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;" data-editable="1" contenteditable="false">© 2022–2025 24seventeen LLC</span>
       </div>
       <div class="footer-bot-mid">
-        <span>Electrical Estimating · Residential & Commercial</span>
-        <span>Anno Domini · Est. 2022</span>
+        <span data-editable="1" contenteditable="false">Electrical Estimating · Residential &amp; Commercial</span>
+        <span data-editable="1" contenteditable="false">Anno Domini · Est. 2022</span>
       </div>
       <div style="display:flex;flex-direction:column;gap:4px;text-align:right;">
-        <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;">Fide et Opere</span>
+        <span style="font-family:'Cinzel',serif;font-size:10.5px;color:rgba(201,168,76,0.60);letter-spacing:1.5px;text-transform:uppercase;" data-editable="1" contenteditable="false">Fide et Opere</span>
       </div>
     </div>
 
     <!-- — single line across very bottom -->
     <div style="margin-top:20px;padding-top:16px;border-top:1px solid rgba(201,168,76,0.08);text-align:center;">
-      <span style="font-family:'Cinzel',serif;font-size:15px;color:rgba(201,168,76,0.62);letter-spacing:2.5px;text-transform:uppercase;">
+      <span style="font-family:'Cinzel',serif;font-size:15px;color:rgba(201,168,76,0.62);letter-spacing:2.5px;text-transform:uppercase;" data-editable="1" contenteditable="false">
         Quinque Solae &nbsp;·&nbsp; Sola Scriptura &nbsp;·&nbsp; Sola Fide &nbsp;·&nbsp; Sola Gratia &nbsp;·&nbsp; Solus Christus &nbsp;·&nbsp; Soli Deo Gloria
       </span>
     </div>
@@ -1578,15 +1627,15 @@ body.edit-mode .ed-text-block .del-block{display:flex;position:absolute;top:-10p
 </style>
 
 <!-- Edit trigger button -->
-<button id="edit-trigger" onclick="openPwModal()">✎ Edit</button>
+<button id="edit-trigger" onclick="openPwModal()" class="active" style="position: fixed; bottom: 16px; right: 90px; left: auto; z-index: 9000; background: rgba(8, 6, 2, 0.85); border: 1px solid rgba(201, 168, 76, 0.3); color: rgba(201, 168, 76, 0.5); font-family: Cinzel, serif; font-size: 11px; letter-spacing: 1px; padding: 4px 8px; cursor: pointer; text-transform: uppercase;">✎ Editing</button>
 
-      <button class="pw-btn ok" onclick="checkPw()">Unlock</button>
-    </div>
-  </div>
-</div>
+      
+    
+  
+
 
 <!-- Editor toolbar -->
-<div id="ed-toolbar">
+<div id="ed-toolbar" class="" style="display: flex;">
   <span class="ed-badge">✎ Edit Mode</span>
   <div class="ed-sep"></div>
   <span class="ed-label">Font</span>
@@ -1610,17 +1659,17 @@ body.edit-mode .ed-text-block .del-block{display:flex;position:absolute;top:-10p
   <button class="ed-btn" id="btn-italic" onmousedown="event.preventDefault();fmt('italic')"><em>I</em></button>
   <div class="ed-sep"></div>
   <span class="ed-label">Color</span>
-  <input type="color" value="#c9a84c" id="color-pick" oninput="applyColor(this.value)" title="Text color"/>
+  <input type="color" value="#c9a84c" id="color-pick" oninput="applyColor(this.value)" title="Text color">
   <div class="ed-sep"></div>
   <button class="ed-btn" onmousedown="event.preventDefault();addTextBlock()">+ Add Text</button>
   <div class="ed-sep"></div>
   <span class="ed-label">Background</span>
   <button class="ed-btn" onclick="document.getElementById('bg-upload').click()">⬆ Upload BG</button>
-  <input type="file" id="bg-upload" accept="image/*" style="display:none" onchange="changeBg(event)"/>
+  <input type="file" id="bg-upload" accept="image/*" style="display:none" onchange="changeBg(event)">
   <div class="ed-sep"></div>
   <span class="ed-label">Place Image</span>
   <button class="ed-btn" onclick="document.getElementById('img-upload').click()">⬆ Upload Image</button>
-  <input type="file" id="img-upload" accept="image/*" style="display:none" onchange="placeImage(event)"/>
+  <input type="file" id="img-upload" accept="image/*" style="display:none" onchange="placeImage(event)">
   <div class="ed-sep"></div>
   <button class="ed-btn" onclick="saveEdits()" style="background:rgba(63,185,80,0.15);border-color:rgba(63,185,80,0.5);color:#3fb950;">💾 Save</button>
   <button class="ed-btn" onclick="exportDebug()" style="background:rgba(56,200,253,0.1);border-color:rgba(56,200,253,0.4);color:#38c8fd;margin-left:6px;" title="Export debug info for troubleshooting">🔍 Debug</button>
@@ -2071,7 +2120,7 @@ textarea.ef-inp{resize:vertical;min-height:90px;}
   <div id="est-box">
 
     <div id="est-header">
-      <h2>Request an Estimate</h2>
+      <h2 data-editable="1" contenteditable="false">Request an Estimate</h2>
       <button id="est-close" onclick="closeEstModal()">✕</button>
     </div>
 
@@ -2098,11 +2147,11 @@ textarea.ef-inp{resize:vertical;min-height:90px;}
       <div class="ef-row">
         <div class="ef-field">
           <label class="ef-label">Bid Due Date <span>*</span></label>
-          <input type="date" class="ef-inp" id="f-duedate"/>
+          <input type="date" class="ef-inp" id="f-duedate">
         </div>
         <div class="ef-field">
           <label class="ef-label">Project Name / Description</label>
-          <input type="text" class="ef-inp" id="f-project" placeholder="e.g. Main Street Office Build-Out"/>
+          <input type="text" class="ef-inp" id="f-project" placeholder="e.g. Main Street Office Build-Out">
         </div>
       </div>
 
@@ -2111,27 +2160,27 @@ textarea.ef-inp{resize:vertical;min-height:90px;}
       <div class="ef-row">
         <div class="ef-field">
           <label class="ef-label">Contact Name <span>*</span></label>
-          <input type="text" class="ef-inp" id="f-name" placeholder="First Last"/>
+          <input type="text" class="ef-inp" id="f-name" placeholder="First Last">
         </div>
         <div class="ef-field">
           <label class="ef-label">Company Name <span>*</span></label>
-          <input type="text" class="ef-inp" id="f-company" placeholder="ABC Electric LLC"/>
+          <input type="text" class="ef-inp" id="f-company" placeholder="ABC Electric LLC">
         </div>
       </div>
       <div class="ef-row">
         <div class="ef-field">
           <label class="ef-label">Phone Number <span>*</span></label>
-          <input type="tel" class="ef-inp" id="f-phone" placeholder="(555) 000-0000"/>
+          <input type="tel" class="ef-inp" id="f-phone" placeholder="(555) 000-0000">
         </div>
         <div class="ef-field">
           <label class="ef-label">Email Address <span>*</span></label>
-          <input type="email" class="ef-inp" id="f-email" placeholder="you@company.com"/>
+          <input type="email" class="ef-inp" id="f-email" placeholder="you@company.com">
         </div>
       </div>
       <div class="ef-row full">
         <div class="ef-field">
           <label class="ef-label">Website <span style="color:rgba(232,223,200,0.25);font-size:12px;">(optional)</span></label>
-          <input type="url" class="ef-inp" id="f-website" placeholder="https://yourcompany.com"/>
+          <input type="url" class="ef-inp" id="f-website" placeholder="https://yourcompany.com">
         </div>
       </div>
 
@@ -2141,7 +2190,7 @@ textarea.ef-inp{resize:vertical;min-height:90px;}
         <div class="ef-upload-icon">📐</div>
         <div class="ef-upload-txt">Click to upload drawings</div>
         <div class="ef-upload-sub">PDF, DWG, DXF, JPG, PNG — multiple files accepted</div>
-        <input type="file" id="f-files" multiple accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png,.tif,.tiff" style="display:none" onchange="handleFiles(this)"/>
+        <input type="file" id="f-files" multiple="" accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png,.tif,.tiff" style="display:none" onchange="handleFiles(this)">
       </div>
       <div id="file-list"></div>
 
@@ -2150,11 +2199,11 @@ textarea.ef-inp{resize:vertical;min-height:90px;}
       <div class="ef-row">
         <div class="ef-field">
           <label class="ef-label">Client / GC Company Name</label>
-          <input type="text" class="ef-inp" id="f-client-company" placeholder="Owner or General Contractor name"/>
+          <input type="text" class="ef-inp" id="f-client-company" placeholder="Owner or General Contractor name">
         </div>
         <div class="ef-field">
           <label class="ef-label">Client / GC Contact Name</label>
-          <input type="text" class="ef-inp" id="f-client-contact" placeholder="Point of contact at GC / Owner"/>
+          <input type="text" class="ef-inp" id="f-client-contact" placeholder="Point of contact at GC / Owner">
         </div>
       </div>
 
@@ -2329,5 +2378,6 @@ function resetForm(){
   document.getElementById('btn-submit').disabled=false;
 }
 </script>
-</body>
-</html>
+
+
+<div id="pw-modal" style="position: fixed; inset: 0px; background: rgba(0, 0, 0, 0.82); z-index: 9100; display: flex; align-items: center; justify-content: center;"><div id="pw-box"><div class="pw-title">Enter Edit Password</div><input id="pw-inp" type="password" placeholder="password" onkeydown="if(event.key==='Enter')checkPw()"><div id="pw-err"></div><div class="pw-btns"><button class="pw-btn cancel" onclick="closePwModal()">Cancel</button><button class="pw-btn ok" onclick="checkPw()">Unlock</button></div></div></div><button id="debug-trigger" onclick="exportDebug()" style="position: fixed; bottom: 16px; right: 16px; left: auto; z-index: 9000; background: rgba(8, 6, 2, 0.85); border: 1px solid rgba(201, 168, 76, 0.3); color: rgba(201, 168, 76, 0.5); font-family: Cinzel, serif; font-size: 11px; letter-spacing: 1px; padding: 4px 8px; cursor: pointer; text-transform: uppercase;">🔍 Debug</button></body></html>
