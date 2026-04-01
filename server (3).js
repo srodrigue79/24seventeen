@@ -23,6 +23,14 @@ html=html.replace(/<button[^>]*onclick="openDebugWithPw\(\)"[^>]*>.*?<\/button>/
 function pb(req){return new Promise(r=>{let b='';req.on('data',c=>b+=c);req.on('end',()=>{try{r(JSON.parse(b));}catch(e){r({});}});});}
 function tc(n,d){return new Promise(r=>{const p=new URLSearchParams({name:n,desc:d,idList:TL,key:TK,token:TT});const o={hostname:'api.trello.com',path:'/1/cards?'+p.toString(),method:'POST',headers:{'Content-Type':'application/json'}};const req=https.request(o,res=>{let data='';res.on('data',c=>data+=c);res.on('end',()=>{try{r({success:res.statusCode===200,body:JSON.parse(data)});}catch(e){r({success:false,error:data});}});});req.on('error',e=>r({success:false,error:e.message}));req.end();});}
 
+
+// Fix scroll on Android: remove overflow-x:hidden from html element (breaks scroll root)
+html = html.replace(/html,body\{[^}]*overflow-x:\s*hidden[^}]*\}/g, 'body{overflow-x:hidden;}');
+html = html.replace(/html\{[^}]*overflow-x:\s*hidden[^}]*\}/g, '');
+// Fix touch-action: remove pan-x pan-y from html/body (blocks wheel+swipe on Android)  
+html = html.replace(/touch-action:\s*pan-x pan-y;?/g, '');
+html = html.replace(/-ms-touch-action:\s*pan-x pan-y;?/g, '');
+
 http.createServer(async(req,res)=>{
 if(req.method==='OPTIONS'){res.writeHead(200,{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'POST','Access-Control-Allow-Headers':'Content-Type'});res.end();return;}
 if(req.method==='POST'&&req.url==='/api/submit'){
