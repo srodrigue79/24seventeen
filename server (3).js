@@ -29,6 +29,9 @@ html=html.replace(/-ms-touch-action:\s*pan-x pan-y;?/g,'');
 // LABEL FIX: "Website (optional)" -> "Project Documents Link"
 html=html.replace(/Website \(optional\)/g,'Project Documents Link');
 html=html.replace(/placeholder="https:\/\/yourcompany\.com"/g,'placeholder="Dropbox, Google Drive, or any file link"');
+// EXACT label fix for Website field
+html=html.replace('class="ef-label">Website <span style="color:rgba(232,223,200,0.25);font-size:12px;">(optional)</span></label>','class="ef-label">Project Documents Link</label>');
+
 
 // SPINNER: inject CSS + HTML before </head>
 const spinnerCSS = `<style id="sdg-spinner-css">
