@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 10000;
 const TK = 'e2f53dda494e678ff457eb1393db96ef';
-const TT = 'f4ac34edbbd50d254a8631242e2e8fbc6fdba26608bd5c94e1d75bebc3295bd5';
+const TT = 'ATTAd2a25dbb3e6819d9f5324c3148b34d7420e00fd7130f090a2ba4352e6a61b25cC0D860B9';
 const TL = '69c85c9230751dcd96acbaa9';
 let html = fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 
