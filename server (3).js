@@ -5,7 +5,7 @@ const path = require('path');
 const PORT = process.env.PORT || 10000;
 const TK = 'e2f53dda494e678ff457eb1393db96ef';
 const TT = 'ATTAd2a25dbb3e6819d9f5324c3148b34d7420e00fd7130f090a2ba4352e6a61b25cC0D860B9';
-const TL = '69c85c9230751dcd96acbaa9';
+const TL = '69c85f3caa9dd56262717998';
 let html = fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 
 // Remove any open state artifacts committed into the HTML
