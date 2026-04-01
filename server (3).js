@@ -2,14 +2,16 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 10000;
-const html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+let html = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+
+// Runtime patch: restore pw-modal and debug-trigger if missing
+if (!html.includes('id="pw-modal"')) {
+  const pwModal = '<div id="pw-modal"><div id="pw-box"><h3>ENTER PASSWORD</h3><input id="pw-inp" type="password" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()"><div id="pw-err"></div><div class="pw-btns"><button class="pw-btn cancel" onclick="closePwModal()">Cancel</button><button class="pw-btn ok" onclick="checkPw()">Unlock</button></div></div></div>';
+  const debugBtn = '<button id="debug-trigger" onclick="exportDebug()">🔍 Debug</button>';
+  html = html.replace('onclick="openPwModal()"> Edit</button>', 'onclick="openPwModal()"> Edit</button>' + debugBtn + pwModal);
+}
+
 http.createServer((req, res) => {
-  const cors = {'Access-Control-Allow-Origin':'*','Cache-Control':'no-cache'};
-  if (req.url === '/raw') {
-    res.writeHead(200, Object.assign({'Content-Type':'text/html; charset=utf-8'}, cors));
-    res.end(html);
-  } else {
-    res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
-    res.end(html);
-  }
-}).listen(PORT, '0.0.0.0', () => console.log('running on port ' + PORT));
+  res.writeHead(200, {'Content-Type':'text/html; charset=utf-8'});
+  res.end(html);
+}).listen(PORT, '0.0.0.0', () => console.log('24seventeen running on port ' + PORT));
