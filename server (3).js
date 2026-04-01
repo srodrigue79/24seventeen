@@ -86,7 +86,7 @@ const spinnerJS = `<script>
 <\/script>`;
 html=html.replace('</body>', spinnerJS + '</body>');
 
-function pb(req){return new Promise(r=>{let b='';req.on('data',c=>b+=c);req.on('end',()=>{try{r(JSON.parse(b));}catch(e){r({});}});});}
+function pb(req){return new Promise(r=>{let chunks=[];req.on('data',c=>chunks.push(c));req.on('end',()=>{try{const body=Buffer.concat(chunks).toString();const ct=req.headers['content-type']||'';if(ct.includes('application/json')){r(JSON.parse(body));}else if(ct.includes('multipart/form-data')){const boundary='--'+ct.split('boundary=')[1];const parts=body.split(boundary).slice(1,-1);const d={};parts.forEach(p=>{const m=p.match(/name="([^"]+)"[\s\S]*?\r\n\r\n([\s\S]*?)\r\n$/);if(m)d[m[1]]=m[2].trim();});r(d);}else{r({});}}catch(e){r({});}});});}
 function tc(n,d){return new Promise(r=>{const p=new URLSearchParams({name:n,desc:d,idList:TL,key:TK,token:TT});const o={hostname:'api.trello.com',path:'/1/cards?'+p.toString(),method:'POST',headers:{'Content-Type':'application/json'}};const req=https.request(o,res=>{let data='';res.on('data',c=>data+=c);res.on('end',()=>{try{r({success:res.statusCode===200,body:JSON.parse(data)});}catch(e){r({success:false,error:data});}});});req.on('error',e=>r({success:false,error:e.message}));req.end();});}
 
 http.createServer(async(req,res)=>{
