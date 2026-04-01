@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const PORT = process.env.PORT || 10000;
 const TK = '1f368e86e9c315bcab3e11ea70f91321';
-const TT = 'ATTA1d71884b279a44e8e671137eafb642fb3147d099b4c56a0f9da8f7e06fb82b1a30CB7DD8';
+const TT = 'ATTAfe185daf054921bcce58899e09da7508943da782acc9046f8ca1dce14a0d01f87FDF62A9';
 const TL = '69c85c9230751dcd96acbaa9';
 let html = fs.readFileSync(path.join(__dirname,'index.html'),'utf8');
 html=html.replace(/(<div id="pw-modal"[^>]*?)display:\s*flex/g,'$1display:none');
